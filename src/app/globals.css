@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .glass-border {
+    @apply pointer-events-none absolute inset-0 z-10 p-px.62;
+  }
+
+  .glass-border:before {
+    @apply absolute inset-0 -z-10 bg-glass-border p-px.62 content-[''];
+
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+  }
+}
+
+@font-face {
+  font-family: 'Futura-Regular';
+  src: url(../../public/fonts/Futura-Regular.ttf);
+}
+
+body{
+  font-family: 'Futura-Regular';
+}
+.container {
+  max-width: 1408px;
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+}
+@media screen and (max-width: 1600px) {
+  .container {
+    max-width: 1230px;
+  }
+  
+}
+.container:after {
+  display: block;
+  clear: both;
+  content: "";
+}
+@media screen and (max-width: 767px) {
+  .logoWrap{
+    width: auto;
+  }
+  .logoWrap img{
+    height: 30px;
+  }
+}
+@media screen and (max-width: 1200px) {
+.headerSearch .headerInput{
+  min-width: 400px;
+}  
+}
