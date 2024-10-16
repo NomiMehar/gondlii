@@ -16,7 +16,6 @@ export default function ExploreSection() {
     'massage',
     'sauna',
     'spa',
-    'reiki',
     'chiropractic',
     'pilates',
     'meditation',

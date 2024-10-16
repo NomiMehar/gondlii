@@ -17,12 +17,12 @@ import {
 export default function TestimonialsSection() {
   const t = useTranslations();
 
-  const testimonials = Array.from({ length: 4 }, (_, index) => ({
+  const testimonials = Array.from({ length: 1 }, (_, index) => ({
     id: index,
     testimonial: t('testimonial'),
     author: {
-      name: 'Andre Lawson',
-      image: '/images/testimonials/andre-lawson.png',
+      name: 'Annika',
+      image: '/images/testimonials/annika_testimonial.png',
     },
   }));
 
