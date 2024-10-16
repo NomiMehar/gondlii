@@ -6,8 +6,12 @@
         .header{
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: baseline;
             margin-bottom: 40px;
+            flex-wrap: wrap;
+            @media (max-width: 413px){
+                gap: 5px;
+            }
             h2{
                 font-size: 28px;
                 font-weight: 700;
@@ -23,6 +27,9 @@
                     background-color: transparent;
                     font-size: 16px;
                     color: rgba(12, 52, 61, 1);
+                    @media (max-width: 413px){
+                      padding-left: 0;
+                  }
                 }
             }
         }
@@ -35,6 +42,7 @@
                 padding-bottom: 15px;
                 margin-bottom: 15px;
                 transition: all 0.3s ease;
+                cursor: pointer;
                 &:last-child{
                     border-bottom: none;
                     padding-bottom: 0;
@@ -59,19 +67,29 @@
                         height: 40px;
                       &.noBorder{
                         &::before{
+                          position: absolute;
+                          top: -2px;
+                          bottom: -2px;
+                          left: -2px;
+                          right: -2px;
+                          content: "";
+                          z-index: -1;
+                          border-radius: 100px;
                          background: rgba(219, 234, 255, 0.5);
                         }
                       }
-                      &::before{
-                        position: absolute;
-                        top: -2px;
-                        bottom: -2px;
-                        left: -2px;
-                        right: -2px;
-                        content: "";
-                        z-index: -1;
-                        border-radius: 100px;
-                        background: linear-gradient(266.66deg, #5CB170 -7.81%, #D6DE6D 118.14%);
+                      &.gradientBorder{
+                        &::before{
+                          position: absolute;
+                          top: -2px;
+                          bottom: -2px;
+                          left: -2px;
+                          right: -2px;
+                          content: "";
+                          z-index: -1;
+                          border-radius: 100px;
+                          background: linear-gradient(266.66deg, #5CB170 -7.81%, #D6DE6D 118.14%);
+                        }
                       }
                      img{
                       width: 40px;
@@ -79,14 +97,14 @@
                      }
                     }
                     .mark{
-                      width: 20px;
-                      height: 20px;
-                      background: #3D656E;
-                      object-fit: none;
+                      width: 27px;
+                      height: 27px;
+                      background: transparent;
+                      object-fit: contain;
                       border-radius: 100px;
                       position: absolute;
-                      top: 24px;
-                      right: -4px;
+                      top: 21px;
+                      right: -9px;
                     }
                   }
                   .content{
@@ -118,11 +136,19 @@
                         object-fit: contain;
                         max-width: 12px;
                     }
+                    &.nonActive{
+                        img{
+                          display: none;
+                        }
+                    }
                   }
                   .readAll{
                     display: none;
                     transition: all 0.3s ease;
                     position: relative;
+                    @media (max-width: 992px){
+                      display: block;
+                  }
                     img{
                         width: 25px;
                         height: 25px;
