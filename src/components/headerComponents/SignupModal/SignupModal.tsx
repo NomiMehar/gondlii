@@ -5,6 +5,8 @@ import Image from 'next/image';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Link from 'next/link';
+import LoginModal from '../LoginModal/LoginModal';
+import { on } from 'events';
 
 interface SignupModalProps {
   show: boolean;
@@ -20,7 +22,15 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
   const [birthday, setBirthday] = useState('');
   const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
   const [errors, setErrors] = useState({ fullName: '', email: '', birthday: '' });
-  
+  const [isLoginModalVisible, setIsLoginModalVisible] = useState(false);
+  const handleOpenLoginModal = () => {
+    onClose();
+    setIsLoginModalVisible(true);
+  };
+
+  const handleCloseLoginModal = () => {
+    setIsLoginModalVisible(false);
+  };
   // Email validation regex
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -75,7 +85,6 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
   };
 
   const isDetailsComplete = fullName && emailRegex.test(email) && birthday;
-
 
   return (
     <React.Fragment>
@@ -132,7 +141,7 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
             </div>
             <div className="alreadyAccount">
               <p>
-                Already have an account? <span>Log in</span> or <span>Continue as Guest</span>
+                Already have an account? <span onClick={handleOpenLoginModal}>Log in</span> or <span>Continue as Guest</span>
               </p>
             </div>
           </Modal.Body>
@@ -309,7 +318,9 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
         </React.Fragment>
       )}
     </Modal>
-
+    {isLoginModalVisible && (
+      <LoginModal show={isLoginModalVisible} onClose={handleCloseLoginModal} />
+    )}
     </React.Fragment>
   );
 };
