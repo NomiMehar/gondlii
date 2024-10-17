@@ -20,7 +20,7 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
   const [birthday, setBirthday] = useState('');
   const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
   const [errors, setErrors] = useState({ fullName: '', email: '', birthday: '' });
-
+  
   // Email validation regex
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -112,8 +112,8 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
             </button>
             <div className="termsCondition">
               <p>
-                By clicking Continue, you agree to{' '}
-                <Link href="/">Gondli's Terms & Conditions</Link> and{' '}
+                By clicking Continue, you agree to
+                <Link href="/">Gondli's Terms & Conditions</Link> and
                 <Link href="/">Privacy Policy</Link>
               </p>
             </div>
