@@ -6,12 +6,16 @@ import LanguageModal from '../LanguageModal/LanguageModal'; // Import the modal 
 import { useLocale } from 'next-intl';
 import { usePathname } from 'next/navigation'; // Correct import
 import Image from 'next/image';
+import SignupModal from '../SignupModal/SignupModal';
+import LoginModal from '../LoginModal/LoginModal';
 const SocialIcons: React.FC = () => {
   const locale = useLocale();
   const pathname = usePathname(); // Get the current pathname
   
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [signupModal, setSignupModal] = useState(false);
+  const [loginModal, setLoginModal] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState<string>('English (United States)');
 
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -24,7 +28,10 @@ const SocialIcons: React.FC = () => {
   // Handle modal open/close
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
-
+  const openSignupModal = () => setSignupModal(true);
+  const closeSignupModal = () => setSignupModal(false);
+  const openLoginModal = () => setLoginModal(true);
+  const closeLoginModal = () => setLoginModal(false);
   // Handle language change
   const handleLanguageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedLanguage(e.target.value);
@@ -230,6 +237,18 @@ const SocialIcons: React.FC = () => {
             <p>Language</p>
             </div>
           </li>
+          <li className="dropdown-item" onClick={openSignupModal}>
+            <div className='language' onClick={handleLinkClick}>
+            <Image width={32} height={32} src="/images/home/Notifications-3.svg" alt="Notifications" />
+            <p>Signup</p>
+            </div>
+          </li>
+          <li className="dropdown-item" onClick={openLoginModal}>
+            <div className='language' onClick={handleLinkClick}>
+            <Image width={32} height={32} src="/images/home/Notifications-3.svg" alt="Notifications" />
+            <p>Login</p>
+            </div>
+          </li>
           <li className="dropdown-item borderTop">
             <Link onClick={handleLinkClick} href="/">
             <Image width={32} height={32} src="/images/home/Notifications-4.svg" alt="Notifications" />
@@ -245,6 +264,14 @@ const SocialIcons: React.FC = () => {
         onClose={closeModal}
         selectedLanguage={selectedLanguage}
         handleLanguageChange={handleLanguageChange}
+      />
+      <SignupModal
+        show={signupModal}
+        onClose={closeSignupModal}
+      />
+      <LoginModal
+        show={loginModal}
+        onClose={closeLoginModal}
       />
   </React.Fragment>
   );
