@@ -113,7 +113,7 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
             <div className="termsCondition">
               <p>
                 By clicking Continue, you agree to
-                <Link href="/">Gondli's Terms & Conditions</Link> and
+                <Link href="/">Gondli Terms & Conditions</Link> and
                 <Link href="/">Privacy Policy</Link>
               </p>
             </div>
