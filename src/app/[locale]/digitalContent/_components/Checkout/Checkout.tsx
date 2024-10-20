@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react'; // Import useState to manage checkbox state
+import React, { useState } from 'react';
 import './Checkout.scss';
 import Link from 'next/link';
 

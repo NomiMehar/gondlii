@@ -97,6 +97,12 @@ const SocialIcons: React.FC = () => {
             <li className="dropdown-item">
               <Link onClick={handleLinkClick} href={`/${locale}/digitalContent`}>Digital Content</Link>
             </li>
+            <li className="dropdown-item">
+              <Link onClick={handleLinkClick} href={`/${locale}/charityEvent`}>Charity Events</Link>
+            </li>
+            <li className="dropdown-item">
+              <Link onClick={handleLinkClick} href={`/${locale}/wellnessService`}>Wellness Service</Link>
+            </li>
           </ul>
         )}
       </div>
