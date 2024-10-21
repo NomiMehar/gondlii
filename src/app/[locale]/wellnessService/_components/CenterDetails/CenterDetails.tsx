@@ -154,7 +154,7 @@ const CenterDetails: React.FC = () => {
             <div className="aboutClass">
               <h3>About The Space</h3>
               <p>
-                Welcome to Harmony Haven, where tranquility meets rejuvenation in the heart of Zurich"s serene Seefeld district. Nestled in the midst of picturesque landscapes and overlooking the calming waters of Lake Zurich, our wellness center is a sanctuary dedicated to enhancing your overall well-being. At Harmony Haven, {isExpanded ? (
+                Welcome to Harmony Haven, where tranquility meets rejuvenation in the heart of Zurichs serene Seefeld district. Nestled in the midst of picturesque landscapes and overlooking the calming waters of Lake Zurich, our wellness center is a sanctuary dedicated to enhancing your overall well-being. At Harmony Haven, {isExpanded ? (
                   <>we... </>
                 ) : "we believe in the power of balance. Welcome to Harmony Haven, where tranquility meets rejuvenation in the heart of Zurichs serene Seefeld district. Nestled in the midst of picturesque landscapes and overlooking the calming waters of Lake Zurich, our wellness center is a sanctuary dedicated to enhancing your overall well-being. "}
                 <button className="read-more" onClick={toggleReadMore}>
