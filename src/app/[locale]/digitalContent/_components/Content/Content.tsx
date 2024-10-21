@@ -9,7 +9,7 @@ import Checkout from '../Checkout/Checkout';
 const Content: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null); // Specify HTMLVideoElement type
   const [isPlaying, setIsPlaying] = useState(false); // State to track video playback
-  const [isExpanded, setIsExpanded] = useState(false); // State to toggle Read More / Read Less
+  const [isExpanded, setIsExpanded] = useState(true); // State to toggle Read More / Read Less
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State to toggle dropdown visibility
 
   const services = [
