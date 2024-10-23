@@ -27,7 +27,7 @@ const CenterDetails: React.FC = () => {
           price: "35.00 CHF",
         },
         {
-          name: "Gentle Flow Yoga Class",
+          name: "Power Vinyasa Yoga Workshop",
           duration: "60 Minutes",
           price: "35.00 CHF",
         },
@@ -60,6 +60,11 @@ const CenterDetails: React.FC = () => {
       items: [
         {
           name: "Energizing Cardio Fitness Class",
+          duration: "45 Minutes",
+          price: "30.00 CHF",
+        },
+        {
+          name: "Strength and Conditioning Bootcamp",
           duration: "45 Minutes",
           price: "30.00 CHF",
         },
@@ -100,7 +105,7 @@ const CenterDetails: React.FC = () => {
             <h2>Harmony Haven Wellness Center</h2>
             <div className="info">
               <span className="rating">
-                <Image width={12} height={12} src="/images/home/star.svg" alt="star" /> 8.5
+                <Image priority width={12} height={12} src="/images/home/star.svg" alt="star" /> 8.5
               </span>
               <span className="minute">$$$$</span>
               <span className="minute">44 Minutes</span>
@@ -108,40 +113,40 @@ const CenterDetails: React.FC = () => {
           </div>
           <div className="likeUpload">
             <button className="upload">
-              <Image width={40} height={40} src="/images/content/upload.svg" alt="upload" />
+              <Image priority width={40} height={40} src="/images/content/upload.svg" alt="upload" />
             </button>
             <button className="like">
-              <Image width={40} height={40} src="/images/content/like.svg" alt="like" />
+              <Image priority width={40} height={40} src="/images/content/like.svg" alt="like" />
             </button>
           </div>
         </div>
         <div className="row g-2">
           <div className="col-lg-8 mt-2">
             <div className="serviceBanner">
-              <Image src="/images/services/mainBanner.svg" width={100} height={100} alt="mainBanner" />
+              <Image priority  src="/images/services/mainBanner.svg" width={100} height={100} alt="mainBanner" />
             </div>
           </div>
           <div className="col-lg-4">
             <div className="row g-2">
               <div className="col-lg-12 mt-2">
                 <div className="blurBlock">
-                  <Image className="mainImg" src="/images/services/grid1.svg" width={100} height={100} alt="grid1" />
+                  <Image priority className="mainImg" src="/images/services/grid1.svg" width={100} height={100} alt="grid1" />
                 </div>
               </div>
               <div className="col-lg-6 mt-2">
                 <div className="blurBlock">
-                  <Image className="mainImg" src="/images/services/grid2.svg" width={100} height={100} alt="grid2" />
+                  <Image priority className="mainImg" src="/images/services/grid2.svg" width={100} height={100} alt="grid2" />
                   <div className="storyContent">
-                    <Image src="/images/services/photos.svg" width={100} height={100} alt="photos" />
+                    <Image priority  src="/images/services/photos.svg" width={100} height={100} alt="photos" />
                     <p>See all photos</p>
                   </div>
                 </div>
               </div>
               <div className="col-lg-6 mt-2">
                 <div className="blurBlock">
-                  <Image className="mainImg" src="/images/services/grid3.svg" width={100} height={100} alt="grid3" />
+                  <Image priority className="mainImg" src="/images/services/grid3.svg" width={100} height={100} alt="grid3" />
                   <div className="storyContent">
-                    <Image src="/images/services/story.svg" width={100} height={100} alt="story" />
+                    <Image priority  src="/images/services/story.svg" width={100} height={100} alt="story" />
                     <p>Check Featured Stories</p>
                   </div>
                 </div>
@@ -164,21 +169,21 @@ const CenterDetails: React.FC = () => {
               <div className="insights">
                 <div className="info">
                   <div className="logo" onClick={handleModalOpen}>
-                    <Image width={40} height={40} src="/images/services/Virta.svg" alt="merck" />
+                    <Image priority width={40} height={40} src="/images/services/Virta.svg" alt="merck" />
                   </div>
                   <div>
-                    <p className="title">Hosted By Vitra <Image width={14} height={14} src="/images/services/verify.svg" alt="verify" /></p>
+                    <p className="title">Hosted By Vitra <Image priority width={14} height={14} src="/images/services/verify.svg" alt="verify" /></p>
                     <p className="since">Member Since 16 Aug, 2023</p>
                   </div>
                 </div>
                 <div className="followInsight">
                   <div className="buttons">
                     <button onClick={handleVenueInsightsOpen}>Venue Insights</button>
-                    <button onClick={toggleDropdown}>{isDropdownOpen ? "Following" : "Follow"} <Image src="/images/content/arrowDown.svg" width={8} height={4} alt="arrowDown" /></button>
+                    <button onClick={toggleDropdown}>{isDropdownOpen ? "Following" : "Follow"} <Image priority  src="/images/content/arrowDown.svg" width={8} height={4} alt="arrowDown" /></button>
                     {isDropdownOpen && (
                       <div className="dropdown">
-                        <div className="dropdown-item"> <Image src="/images/content/notifications.svg" width={32} height={32} alt="notifications" />Follow & Receive Notifications</div>
-                        <div className="dropdown-item"> <Image src="/images/content/block.svg" width={32} height={32} alt="block" />Follow Without Notifications</div>
+                        <div className="dropdown-item"> <Image priority  src="/images/content/notifications.svg" width={32} height={32} alt="notifications" />Follow & Receive Notifications</div>
+                        <div className="dropdown-item"> <Image priority  src="/images/content/block.svg" width={32} height={32} alt="block" />Follow Without Notifications</div>
                       </div>
                     )}
                   </div>
@@ -191,7 +196,7 @@ const CenterDetails: React.FC = () => {
               {servicesData.map((service, index) => (
                 <div key={index}>
                   <h3>
-                    <Image src={service.icon} width={19} height={19} alt={service.title} /> {service.title}
+                    <Image priority  src={service.icon} width={19} height={19} alt={service.title} /> {service.title}
                   </h3>
                   <ul>
                     {service.items.map((item, idx) => (

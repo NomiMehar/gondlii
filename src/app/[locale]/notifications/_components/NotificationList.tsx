@@ -222,7 +222,7 @@ const NotificationList: React.FC = () => {
                           />
                         </div>
                         {notification.mark && (
-                          <Image className='mark' width={100} height={100} src={notification.mark} alt="mark" />
+                          <Image priority className='mark' width={100} height={100} src={notification.mark} alt="mark" />
                         )}
                       </div>
                       <div className="content">

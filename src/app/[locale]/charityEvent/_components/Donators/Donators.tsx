@@ -51,10 +51,10 @@ const Donators: React.FC = () => {
             {donators.map((review, index) => (
                 <div className="block" key={index}>
                     <div className="user">
-                        <Image width={40} height={40} src={review.userImage} alt="user" />
+                        <Image priority width={40} height={40} src={review.userImage} alt="user" />
                     </div>
                     <div className="review-info">
-                        <h4>{review.name} <Image width={26} height={26} src={review.badge} alt="user" /></h4>
+                        <h4>{review.name} <Image priority width={26} height={26} src={review.badge} alt="user" /></h4>
                         <p>{review.review}</p>
                         <div className="info">
                             <span className='minute'>{review.date}</span>

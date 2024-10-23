@@ -74,18 +74,18 @@ const Carousel = () => {
         <div className="carousel-container">
             {/* Image Display */}
             <div className="carousel-image">
-                <Image width={100} height={100} src={images[currentIndex]} alt={`Slide ${currentIndex}`} objectFit="cover" />
+                <Image priority width={100} height={100} src={images[currentIndex]} alt={`Slide ${currentIndex}`} objectFit="cover" />
             </div>
 
             {/* Navigation Buttons */}
             <div className="carousel-controls">
                 <div className="carousel-position">
                     <div className="play">
-                        <button className="pause-btn" onClick={handlePause}><Image src="/images/services/pause.svg" width={16} height={16} alt='pause' /> {isPlaying ? 'Pause' : 'Play'}</button>
+                        <button className="pause-btn" onClick={handlePause}><Image priority  src="/images/services/pause.svg" width={16} height={16} alt='pause' /> {isPlaying ? 'Pause' : 'Play'}</button>
                     </div>
                     <div className="nextBack">
-                        <button className="back-btn" onClick={handleBack}><Image src="/images/services/previous.svg" width={24} height={24} alt='pause' /></button>
-                        <button className="next-btn" onClick={handleNext}><Image src="/images/services/next.svg" width={24} height={24} alt='pause' /></button>
+                        <button className="back-btn" onClick={handleBack}><Image priority  src="/images/services/previous.svg" width={24} height={24} alt='pause' /></button>
+                        <button className="next-btn" onClick={handleNext}><Image priority  src="/images/services/next.svg" width={24} height={24} alt='pause' /></button>
                     </div>
                 </div>
             </div>
@@ -124,8 +124,8 @@ const RecentUpdateModal: React.FC<RecentUpdateModalProps> = ({ showModal, onClos
                         <Modal.Header closeButton>
                             <Modal.Title>
                                 <div className="logo">
-                                    <Image width={40} height={40} src="/images/services/Virta.svg" alt="merck" />
-                                    <h3>Vitra <Image width={14} height={14} src="/images/services/verify.svg" alt="verify" /></h3>
+                                    <Image priority width={40} height={40} src="/images/services/Virta.svg" alt="merck" />
+                                    <h3>Vitra <Image priority width={14} height={14} src="/images/services/verify.svg" alt="verify" /></h3>
                                 </div>
                             </Modal.Title>
                         </Modal.Header>
@@ -140,10 +140,10 @@ const RecentUpdateModal: React.FC<RecentUpdateModalProps> = ({ showModal, onClos
                             {reviews.map((review, index) => (
                                 <div className="block" key={index}>
                                     <div className="user">
-                                        <Image width={40} height={40} src={review.userImage} alt="user" />
+                                        <Image priority width={40} height={40} src={review.userImage} alt="user" />
                                     </div>
                                     <div className="review-info">
-                                        <h4>{review.name} <Image width={26} height={26} src={review.badge} alt="user" /></h4>
+                                        <h4>{review.name} <Image priority width={26} height={26} src={review.badge} alt="user" /></h4>
                                         <p>{review.review}</p>
                                         <div className="info">
                                             <span className='rating'>
@@ -160,7 +160,7 @@ const RecentUpdateModal: React.FC<RecentUpdateModalProps> = ({ showModal, onClos
                         {/* Add Comment Section */}
                         <div className="add-comment">
                             <input type="text" placeholder="Add Comment" />
-                            <Image src="/images/home/user.svg" width={28} height={28} alt='user' />
+                            <Image priority  src="/images/home/user.svg" width={28} height={28} alt='user' />
                         </div>
                     </div>
                 </div>

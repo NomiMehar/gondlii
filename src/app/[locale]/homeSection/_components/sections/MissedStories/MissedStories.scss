@@ -19,7 +19,12 @@
       }
     }
   }
-
+  .missedLoader{
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .swiper_container {
     height: auto !important;
     padding: 60px 0 0;
@@ -55,7 +60,7 @@
           gap: 5px;
 
           .pagination-dot {
-            width: 15px;
+            width: 33.33% !important;
             height: 3px;
             border-radius: 10px;
             background: rgba(255, 255, 255, 0.3);

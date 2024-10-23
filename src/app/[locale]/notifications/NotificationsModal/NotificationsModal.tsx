@@ -13,7 +13,7 @@ const NotificationsModal: React.FC<NotificationsModalProps> = ({ show, onClose }
     <Modal show={show} onHide={onClose} centered className="notifications-modal">
       <Modal.Header closeButton>
         <Modal.Title>
-          <Image src="/images/logo/dark.svg" width={85} height={20} alt="logo" />
+          <Image priority  src="/images/logo/dark.svg" width={85} height={20} alt="logo" />
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -26,17 +26,17 @@ const NotificationsModal: React.FC<NotificationsModalProps> = ({ show, onClose }
         </div>
         <div className="badgeBack">
           <div className="badge">
-            <Image src="/images/notifications/badgeBack.svg" width={85} height={85} alt="Top Ambassador Badge" />
+            <Image priority  src="/images/notifications/badgeBack.svg" width={85} height={85} alt="Top Ambassador Badge" />
           </div>
           <div className="badgeContent">
             <div className="content">
               <div className="d-flex align-items-center">
                 <div className="flex-shrink-0">
-                  <Image src="/images/home/user.svg" width={40} height={40} alt="Badge" />
+                  <Image priority  src="/images/home/user.svg" width={40} height={40} alt="Badge" />
                 </div>
                 <div className="flex-grow-1 ms-2">
                   <p className='flex align-items-center'><b>Madelina H.</b>
-                    <Image className='ms-1' src="/images/notifications/badge.svg" width={17} height={17} alt="Badge" /></p>
+                    <Image priority  className='ms-1' src="/images/notifications/badge.svg" width={17} height={17} alt="Badge" /></p>
                   <p>Visited Spavitality Haven <b>15 times</b></p>
                 </div>
               </div>

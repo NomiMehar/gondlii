@@ -79,13 +79,13 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({ onDateSelect }) => 
       <div className="datepicker-content">
         <div className="month-navigation">
           <button onClick={handlePreviousMonth}>
-          <Image src="/images/services/dropdown.svg" width={8} height={4} alt="dropdown" className="dropdown-icon" />
+          <Image priority  src="/images/services/dropdown.svg" width={8} height={4} alt="dropdown" className="dropdown-icon" />
           </button>
           <span className="month-year">
             {currentDate.toLocaleString('default', { month: 'long' })} {currentDate.getFullYear()}
           </span>
           <button onClick={handleNextMonth}>
-          <Image src="/images/services/dropdown.svg" width={8} height={4} alt="dropdown" className="dropdown-icon" />
+          <Image priority  src="/images/services/dropdown.svg" width={8} height={4} alt="dropdown" className="dropdown-icon" />
           </button>
         </div>
         <div className="days-of-week">

@@ -19,7 +19,12 @@
             }
         }
     }
-
+    .sliderLoader{
+        height: 245px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     .exploreDealsSwiper {
         height: auto !important;
         padding: 60px 0 10px;
@@ -50,7 +55,6 @@
                         position: absolute;
                         top: 10px;
                         right: 10px;
-                        cursor: pointer;
 
                         &:hover {
                             filter: drop-shadow(2px 4px 6px black);

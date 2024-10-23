@@ -20,7 +20,7 @@ const LanguageModal: React.FC<LanguageModalProps> = ({
     <Modal show={show} onHide={onClose} centered className="language-modal">
       <Modal.Header closeButton>
         <Modal.Title>
-          <Image src="/images/logo/dark.svg" width={85} height={20} alt="logo" />
+          <Image priority  src="/images/logo/dark.svg" width={85} height={20} alt="logo" />
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>

@@ -31,17 +31,17 @@ const CharityDetails: React.FC = () => {
           </div>
           <div className="likeUpload">
             <button className="upload">
-              <Image width={40} height={40} src="/images/content/upload.svg" alt="upload" />
+              <Image priority width={40} height={40} src="/images/content/upload.svg" alt="upload" />
             </button>
             <button className="like">
-              <Image width={40} height={40} src="/images/content/like.svg" alt="like" />
+              <Image priority width={40} height={40} src="/images/content/like.svg" alt="like" />
             </button>
           </div>
         </div>
         <div className="row">
           <div className="col-lg-8">
            <div className="charityBanner">
-            <Image src="/images/charity/charityBanner.svg" width={100} height={100} alt="charityBanner" />
+            <Image priority  src="/images/charity/charityBanner.svg" width={100} height={100} alt="charityBanner" />
            </div>
             <div className="aboutClass">
               <h3>Charity Details</h3>
@@ -56,7 +56,7 @@ const CharityDetails: React.FC = () => {
               <div className="insights">
                 <div className="info">
                 <div className="logo">
-                <Image width={40} height={40} src="/images/charity/qual.svg" alt="merck" />
+                <Image priority width={40} height={40} src="/images/charity/qual.svg" alt="merck" />
                 </div>
                 <div>
                     <p className='title'>Hosted By Give & Gain Initiative</p>
@@ -66,11 +66,11 @@ const CharityDetails: React.FC = () => {
                 <div className="followInsight">
                 <div className="buttons">
                     <button>Fundraiser Insights</button>
-                    <button onClick={toggleDropdown}>{isDropdownOpen ? "Following" : "Follow"} <Image src="/images/content/arrowDown.svg" width={8} height={4} alt='arrowDown' /></button>
+                    <button onClick={toggleDropdown}>{isDropdownOpen ? "Following" : "Follow"} <Image priority  src="/images/content/arrowDown.svg" width={8} height={4} alt='arrowDown' /></button>
                     {isDropdownOpen && (
                       <div className="dropdown">
-                        <div className='dropdown-item'> <Image src="/images/content/notifications.svg" width={32} height={32} alt='notifications' />Follow & Receive Notifications</div>
-                        <div className='dropdown-item'> <Image src="/images/content/block.svg" width={32} height={32} alt='block' />Follow Without Notifications</div>
+                        <div className='dropdown-item'> <Image priority  src="/images/content/notifications.svg" width={32} height={32} alt='notifications' />Follow & Receive Notifications</div>
+                        <div className='dropdown-item'> <Image priority  src="/images/content/block.svg" width={32} height={32} alt='block' />Follow Without Notifications</div>
                       </div>
                     )}
                 </div>

@@ -93,7 +93,7 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
         <React.Fragment>
           <Modal.Header closeButton>
             <Modal.Title>
-              <Image className='logo' src="/images/logo/dark.svg" width={85} height={20} alt="logo" />
+              <Image priority className='logo' src="/images/logo/dark.svg" width={85} height={20} alt="logo" />
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -131,11 +131,11 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
             </div>
             <div className="socialLogin">
               <button className="facebook">
-                <Image src="/images/notifications/facebook.svg" width={20} height={20} alt="facebook" />
+                <Image priority  src="/images/notifications/facebook.svg" width={20} height={20} alt="facebook" />
                 <p>Continue with Facebook</p>
               </button>
               <button className="google">
-                <Image src="/images/notifications/google.svg" width={20} height={20} alt="google" />
+                <Image priority  src="/images/notifications/google.svg" width={20} height={20} alt="google" />
                 <p>Continue with Google</p>
               </button>
             </div>
@@ -150,10 +150,10 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
       {step === 2 && (
         <React.Fragment>
           <Modal.Header closeButton>
-              <Image className='back' onClick={prevStep} src="/images/notifications/back.svg" width={7} height={10} alt="back" />
+              <Image priority className='back' onClick={prevStep} src="/images/notifications/back.svg" width={7} height={10} alt="back" />
             <Modal.Title>
               <div className="flex justify-content-center">
-              <Image className='logo' src="/images/logo/dark.svg" width={85} height={20} alt="logo" />
+              <Image priority className='logo' src="/images/logo/dark.svg" width={85} height={20} alt="logo" />
               </div>
             </Modal.Title>
           </Modal.Header>
@@ -188,10 +188,10 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
       {step === 3 && (
         <React.Fragment>
           <Modal.Header closeButton>
-              <Image className='back' onClick={prevStep} src="/images/notifications/back.svg" width={7} height={10} alt="back" />
+              <Image priority className='back' onClick={prevStep} src="/images/notifications/back.svg" width={7} height={10} alt="back" />
             <Modal.Title>
               <div className="flex justify-content-center">
-              <Image className='logo' src="/images/logo/dark.svg" width={85} height={20} alt="logo" />
+              <Image priority className='logo' src="/images/logo/dark.svg" width={85} height={20} alt="logo" />
               </div>
             </Modal.Title>
           </Modal.Header>
@@ -252,7 +252,7 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
           </Modal.Header>
           <Modal.Body>
             <div className="text-center">
-            <Image className='setup' src="/images/notifications/gondli.svg" width={60} height={60} alt="gondli" />
+            <Image priority className='setup' src="/images/notifications/gondli.svg" width={60} height={60} alt="gondli" />
               <h2 className="title">Welcome to Gondli</h2>
               <p className="description mb-0">
                 We are happy to see you here. Let’s make the wellness tailored for you.
@@ -267,10 +267,10 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
       {step === 5 && (
         <React.Fragment>
           <Modal.Header closeButton>
-              <Image className='back' onClick={prevStep} src="/images/notifications/back.svg" width={7} height={10} alt="back" />
+              <Image priority className='back' onClick={prevStep} src="/images/notifications/back.svg" width={7} height={10} alt="back" />
             <Modal.Title>
               <div className="flex justify-content-center">
-              <Image className='logo' src="/images/logo/dark.svg" width={85} height={20} alt="logo" />
+              <Image priority className='logo' src="/images/logo/dark.svg" width={85} height={20} alt="logo" />
               </div>
             </Modal.Title>
           </Modal.Header>
@@ -307,7 +307,7 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
           </Modal.Header>
           <Modal.Body>
             <div className="text-center">
-            <Image className='setup' src="/images/notifications/setup.svg" width={60} height={60} alt="setup" />
+            <Image priority className='setup' src="/images/notifications/setup.svg" width={60} height={60} alt="setup" />
               <h2 className="title">You are all set up!</h2>
               <p className="description mb-0">Now you can check all the available offers tailored only for you</p>
               <button className="get-started active" onClick={onClose}>

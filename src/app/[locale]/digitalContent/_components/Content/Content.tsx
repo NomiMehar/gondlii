@@ -50,17 +50,17 @@ const Content: React.FC = () => {
             <h2>Pilates Workshop</h2>
             <div className="info">
               <span className='rating'>
-                <Image width={12} height={12} src="/images/home/star.svg" alt="star" /> 9.2
+                <Image priority width={12} height={12} src="/images/home/star.svg" alt="star" /> 9.2
               </span>
               <span className='minute'>44 Minutes</span>
             </div>
           </div>
           <div className="likeUpload">
             <button className="upload">
-              <Image width={40} height={40} src="/images/content/upload.svg" alt="upload" />
+              <Image priority width={40} height={40} src="/images/content/upload.svg" alt="upload" />
             </button>
             <button className="like">
-              <Image width={40} height={40} src="/images/content/like.svg" alt="like" />
+              <Image priority width={40} height={40} src="/images/content/like.svg" alt="like" />
             </button>
           </div>
         </div>
@@ -80,7 +80,7 @@ const Content: React.FC = () => {
               </video>
               {!isPlaying && (
                 <div className="custom-play-button" onClick={handlePlayPauseVideo}>
-                  <Image src="/images/content/play.svg" width={60} height={60} alt="Play Button" className="play-icon" />
+                  <Image priority  src="/images/content/play.svg" width={60} height={60} alt="Play Button" className="play-icon" />
                 </div>
               )}
             </div>
@@ -97,7 +97,7 @@ const Content: React.FC = () => {
               <div className="insights">
                 <div className="info">
                 <div className="logo">
-                <Image width={40} height={40} src="/images/content/merck.svg" alt="merck" />
+                <Image priority width={40} height={40} src="/images/content/merck.svg" alt="merck" />
                 </div>
                 <div>
                     <p className='title'>Hosted By Merck</p>
@@ -107,11 +107,11 @@ const Content: React.FC = () => {
                 <div className="followInsight">
                 <div className="buttons">
                     <button>Venue Insights</button>
-                    <button onClick={toggleDropdown}>{isDropdownOpen ? "Following" : "Follow"} <Image src="/images/content/arrowDown.svg" width={8} height={4} alt='arrowDown' /></button>
+                    <button onClick={toggleDropdown}>{isDropdownOpen ? "Following" : "Follow"} <Image priority  src="/images/content/arrowDown.svg" width={8} height={4} alt='arrowDown' /></button>
                     {isDropdownOpen && (
                       <div className="dropdown">
-                        <div className='dropdown-item'> <Image src="/images/content/notifications.svg" width={32} height={32} alt='notifications' />Follow & Receive Notifications</div>
-                        <div className='dropdown-item'> <Image src="/images/content/block.svg" width={32} height={32} alt='block' />Follow Without Notifications</div>
+                        <div className='dropdown-item'> <Image priority  src="/images/content/notifications.svg" width={32} height={32} alt='notifications' />Follow & Receive Notifications</div>
+                        <div className='dropdown-item'> <Image priority  src="/images/content/block.svg" width={32} height={32} alt='block' />Follow Without Notifications</div>
                       </div>
                     )}
                 </div>
@@ -120,7 +120,7 @@ const Content: React.FC = () => {
             </div>
             <div className="service">
               <h3>Program Outline</h3>
-              <h3><Image src="/images/content/time.svg" width={19} height={19} alt="time" /> 48 Minutes</h3>
+              <h3><Image priority  src="/images/content/time.svg" width={19} height={19} alt="time" /> 48 Minutes</h3>
               <ul>
                 {services.map((service, index) => (
                   <li key={index}>

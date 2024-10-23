@@ -105,26 +105,26 @@ const VenueInsights: React.FC<{ showModal: boolean; onClose: () => void }> = ({ 
                 <div className="venue-insights-content">
                     <div className="venueBlock">
                         <div className="venue-badge">
-                            <Image src="/images/services/vitraLogo.svg" alt="Verified Badge" width={60} height={60} />
+                            <Image priority  src="/images/services/vitraLogo.svg" alt="Verified Badge" width={60} height={60} />
                         </div>
                         <div className="venue-description">
-                            <h3 className='heading'>Vitra <Image src="/images/services/verify.svg" alt="Verified Badge" width={14} height={14} /></h3>
+                            <h3 className='heading'>Vitra <Image priority  src="/images/services/verify.svg" alt="Verified Badge" width={14} height={14} /></h3>
                             <p>
                                 Step into blissful rejuvenation with Vitra, your premier destination for holistic wellness and self-care. 🌸🧘‍♀️ Discover a sanctuary where mind, body, and soul unite to restore balance and vitality, guiding you on a journey to holistic well-being.
                             </p>
                             <div className="metrics">
                                 <div className="metric">
-                                    <Image src="/images/content/badge1.svg" alt="Badge" width={42} height={42} />
+                                    <Image priority  src="/images/content/badge1.svg" alt="Badge" width={42} height={42} />
                                     <span className="badge rookie">150+</span>
                                     <p>Rookies Served</p>
                                 </div>
                                 <div className="metric">
-                                    <Image src="/images/content/badge2.svg" alt="Badge" width={42} height={42} />
+                                    <Image priority  src="/images/content/badge2.svg" alt="Badge" width={42} height={42} />
                                     <span className="badge elite">350+</span>
                                     <p>Elite Served</p>
                                 </div>
                                 <div className="metric">
-                                    <Image src="/images/content/badge3.svg" alt="Badge" width={42} height={42} />
+                                    <Image priority  src="/images/content/badge3.svg" alt="Badge" width={42} height={42} />
                                     <span className="badge master">200+</span>
                                     <p>Master Served</p>
                                 </div>
@@ -191,12 +191,12 @@ const VenueInsights: React.FC<{ showModal: boolean; onClose: () => void }> = ({ 
         <SwiperSlide key={index} className="swiper-slide">
         <div className="image-wrapper">
           <div className='banner'>
-          <Image width={100} height={100} className='main-img' src={item.imageSrc} alt={item.title} />
+          <Image priority width={100} height={100} className='main-img' src={item.imageSrc} alt={item.title} />
           </div>
           <h2 className="slide-title">{item.title}</h2>
           <div className="additional-info">
             <div className="info">
-             <span className='rating'><Image width={12} height={12} src="/images/home/star.svg" alt="star" /> {item.rating}</span>
+             <span className='rating'><Image priority width={12} height={12} src="/images/home/star.svg" alt="star" /> {item.rating}</span>
             </div>
           </div>
         </div>
@@ -211,12 +211,12 @@ const VenueInsights: React.FC<{ showModal: boolean; onClose: () => void }> = ({ 
                                         <div className="content">
                                             <div className="d-flex align-items-center">
                                                 <div className="flex-shrink-0">
-                                                    <Image src={ambassador.userSrc} width={40} height={40} alt="User" />
+                                                    <Image priority  src={ambassador.userSrc} width={40} height={40} alt="User" />
                                                 </div>
                                                 <div className="flex-grow-1 ms-2">
                                                     <p className="flex align-items-center">
                                                         <b>{ambassador.name}</b>
-                                                        <Image className="ms-1" src={ambassador.badgeSrc} width={17} height={17} alt="Badge" />
+                                                        <Image priority className="ms-1" src={ambassador.badgeSrc} width={17} height={17} alt="Badge" />
                                                     </p>
                                                     <p>Visited Vitra <b>{ambassador.visits} times</b></p>
                                                 </div>
@@ -233,20 +233,20 @@ const VenueInsights: React.FC<{ showModal: boolean; onClose: () => void }> = ({ 
                                         <div className="content">
                                             <div className="d-flex align-items-center">
                                                 <div className="flex-shrink-0">
-                                                    <Image src={content.imageSrc} className="mainImg" width={83} height={83} alt="Digital Content" />
+                                                    <Image priority  src={content.imageSrc} className="mainImg" width={83} height={83} alt="Digital Content" />
                                                 </div>
                                                 <div className="flex-grow-1 ms-2">
                                                     <p className="flex align-items-center"><b>{content.title}</b></p>
                                                     <div className="info">
                                                         <span className="rating">
-                                                            <Image width={12} height={12} src="/images/home/star.svg" alt="star" /> {content.rating}
+                                                            <Image priority width={12} height={12} src="/images/home/star.svg" alt="star" /> {content.rating}
                                                         </span>
                                                         <span className="minute">{content.duration}</span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <span>
-                                                <Image src={content.playIconSrc} width={19} height={19} alt="Play" />
+                                                <Image priority  src={content.playIconSrc} width={19} height={19} alt="Play" />
                                             </span>
                                         </div>
                                     </div>
@@ -255,10 +255,10 @@ const VenueInsights: React.FC<{ showModal: boolean; onClose: () => void }> = ({ 
                         </div>
                     </div>
                     <div className="map-section">
-                        <Image className='cross' onClick={onClose} src="/images/services/close.svg" alt="close" width={32} height={32} />
+                        <Image priority className='cross' onClick={onClose} src="/images/services/close.svg" alt="close" width={32} height={32} />
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10808.062410989867!2d8.513875599999999!3d47.37261395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47900a219f017771%3A0xe4891d7f6ec549df!2s8003%20Z%C3%BCrich%2C%20Switzerland!5e0!3m2!1sen!2s!4v1729464824176!5m2!1sen!2s" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
 
-                        <button className="get-directions-btn"><Image src="/images/services/direction.svg" alt="Badge" width={20} height={20} /> Get Directions</button>
+                        <button className="get-directions-btn"><Image priority  src="/images/services/direction.svg" alt="Badge" width={20} height={20} /> Get Directions</button>
                     </div>
                 </div>
             </Modal.Body>
