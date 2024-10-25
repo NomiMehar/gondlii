@@ -5,6 +5,8 @@ import Image from 'next/image';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import SignupModal from '../SignupModal/SignupModal';
+import { useTranslations } from 'next-intl';
+
 interface LoginModalProps {
   show: boolean;
   onClose: () => void;
@@ -14,6 +16,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
   show,
   onClose,
 }) => {
+  const t = useTranslations();
   const [usePhone, setUsePhone] = useState(true);
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [phoneOrEmail, setPhoneOrEmail] = useState('');
@@ -92,79 +95,85 @@ const LoginModal: React.FC<LoginModalProps> = ({
   const handleCloseSignupModal = () => {
     setIsSignupModalVisible(false);
   };
+  
   return (
-   <React.Fragment>
-     <Modal show={show} onHide={handleClose} centered className="LoginModal">
-      <Modal.Header closeButton>
-        <Modal.Title>
-          <Image priority  src="/images/logo/dark.svg" width={85} height={20} alt="logo" />
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <div className="text-center">
-          <h2 className="title">Welcome Back to Gondli</h2>
-          <p className="description">Enter your credentials to log in</p>
-        </div>
-        <div className="phoneInput">
-          <FloatingLabel className="mb-2" controlId="floatingInput" label={usePhone ? "Phone Number" : "Email Address"}>
-            <Form.Control
-              type={usePhone ? "text" : "email"}
-              placeholder={usePhone ? "Phone Number" : "Email Address"}
-              value={phoneOrEmail}
-              onChange={usePhone ? handlePhoneNumberChange : handleEmailChange}
-              maxLength={usePhone ? 12 : undefined}
-              isInvalid={!usePhone && emailError && hasAttemptedSubmit} // Show validation error for email field after submit attempt
-            />
-            {!usePhone && emailError && hasAttemptedSubmit && (
-              <Form.Control.Feedback type="invalid">
-                Please enter a valid email address.
-              </Form.Control.Feedback>
-            )}
-          </FloatingLabel>
-          <FloatingLabel className="mb-2" controlId="floatingPassword" label="Password">
-            <Form.Control
-              type={passwordVisible ? "text" : "password"}
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <div className="show-hide-password" onClick={togglePasswordVisibility}>
-              {passwordVisible ? 'Hide' : 'Show'}
-            </div>
-          </FloatingLabel>
-          <div className="forgotPassword">
-            <span>Forgot Password?</span>
+    <React.Fragment>
+      <Modal show={show} onHide={handleClose} centered className="LoginModal">
+        <Modal.Header closeButton>
+          <Modal.Title>
+            <Image priority src="/images/logo/dark.svg" width={85} height={20} alt="logo" />
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="text-center">
+            <h2 className="title">{t("welcome-back")}</h2>
+            <p className="description">{t("enter-credentials")}</p>
           </div>
-        </div>
-        <button
-          className={`get-started ${isFormValid ? 'active' : ''}`}
-          disabled={!isFormValid}
-          onClick={handleSubmit} // Trigger validation on submit
-        >
-          Log In
-        </button>
-        <div className="or">
-          <p><span>Or</span></p>
-        </div>
-        <div className="socialLogin">
-          <button onClick={toggleLoginMethod}>
-            <Image priority  src={usePhone ? "/images/notifications/Mail.svg" : "/images/notifications/phone.svg"} width={20} height={20} alt={usePhone ? "mail" : "phone"} />
-            <p>{usePhone ? "Continue with Email" : "Continue with Phone number"}</p>
+          <div className="phoneInput">
+            <FloatingLabel className="mb-2" controlId="floatingInput" label={usePhone ? t("phone-number") : t("email-address")}>
+              <Form.Control
+                type={usePhone ? "text" : "email"}
+                placeholder={usePhone ? t("phone-number") : t("email-address")}
+                value={phoneOrEmail}
+                onChange={usePhone ? handlePhoneNumberChange : handleEmailChange}
+                maxLength={usePhone ? 12 : undefined}
+                isInvalid={!usePhone && emailError && hasAttemptedSubmit} // Show validation error for email field after submit attempt
+              />
+              {!usePhone && emailError && hasAttemptedSubmit && (
+                <Form.Control.Feedback type="invalid">
+                  {t("valid-email-error")}
+                </Form.Control.Feedback>
+              )}
+            </FloatingLabel>
+            <FloatingLabel className="mb-2" controlId="floatingPassword" label={t("password")}>
+              <Form.Control
+                type={passwordVisible ? "text" : "password"}
+                placeholder={t("password")}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <div className="show-hide-password" onClick={togglePasswordVisibility}>
+                {passwordVisible ? t("hide") : t("show")}
+              </div>
+            </FloatingLabel>
+            <div className="forgotPassword">
+              <span>{t("forgot-password")}</span>
+            </div>
+          </div>
+          <button
+            className={`get-started ${isFormValid ? 'active' : ''}`}
+            disabled={!isFormValid}
+            onClick={handleSubmit} // Trigger validation on submit
+          >
+            {t("log-in")}
           </button>
-          <button><Image priority  src="/images/notifications/facebook.svg" width={20} height={20} alt="facebook" />
-          <p>Continue with Facebook</p></button>
-          <button><Image priority  src="/images/notifications/google.svg" width={20} height={20} alt="google" /><p>Continue with Google</p></button>
-        </div>
-        <div className="alreadyAccount">
-          <p>Don’t have an account yet? <span onClick={handleOpenSignupModal}>Sign up</span> or <span>Continue as Guest</span></p>
-        </div>
-      </Modal.Body>
-    </Modal>
-    <SignupModal
-        show={isSignupModalVisible}
-        onClose={handleCloseSignupModal}
+          <div className="or">
+            <p><span>{t("or")}</span></p>
+          </div>
+          <div className="socialLogin">
+            <button onClick={toggleLoginMethod}>
+              <Image priority src={usePhone ? "/images/notifications/Mail.svg" : "/images/notifications/phone.svg"} width={20} height={20} alt={usePhone ? "mail" : "phone"} />
+              <p>{usePhone ? t("continue-with-email") : t("continue-with-phone")}</p>
+            </button>
+            <button>
+              <Image priority src="/images/notifications/facebook.svg" width={20} height={20} alt="facebook" />
+              <p>{t("continue-with-facebook")}</p>
+            </button>
+            <button>
+              <Image priority src="/images/notifications/google.svg" width={20} height={20} alt="google" />
+              <p>{t("continue-with-google")}</p>
+            </button>
+          </div>
+          <div className="alreadyAccount">
+            <p>{t("no-account-yet")} <span onClick={handleOpenSignupModal}>{t("sign-up")}</span> or <span>{t("continue-as-guest")}</span></p>
+          </div>
+        </Modal.Body>
+      </Modal>
+      <SignupModal
+          show={isSignupModalVisible}
+          onClose={handleCloseSignupModal}
       />
-   </React.Fragment>
+    </React.Fragment>
   );
 };
 

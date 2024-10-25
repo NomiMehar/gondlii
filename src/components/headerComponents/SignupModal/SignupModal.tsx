@@ -7,6 +7,8 @@ import Form from 'react-bootstrap/Form';
 import Link from 'next/link';
 import LoginModal from '../LoginModal/LoginModal';
 import { on } from 'events';
+import { useTranslations } from 'next-intl';
+
 
 interface SignupModalProps {
   show: boolean;
@@ -14,6 +16,7 @@ interface SignupModalProps {
 }
 
 const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
+  const t = useTranslations();
   const [step, setStep] = useState(1);
   const [phoneNumber, setPhoneNumber] = useState('');
   const [otp, setOtp] = useState(Array(6).fill(''));
@@ -98,17 +101,17 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
           </Modal.Header>
           <Modal.Body>
             <div className="text-center">
-              <h2 className="title">Join Gondli</h2>
-              <p className="description">Start your path to wellness here</p>
+              <h2 className="title">{t("join-gondli")}</h2>
+              <p className="description">{t("start-path-to-wellness")}</p>
             </div>
             <div className="phoneInput">
-              <FloatingLabel controlId="floatingInput" label="Phone Number">
+              <FloatingLabel controlId="floatingInput" label={t("phone-number")}>
                 <Form.Control
                   type="text"
                   maxLength={12}
                   value={phoneNumber}
                   onChange={(e) => setPhoneNumber(e.target.value)}
-                  placeholder="Phone Number"
+                  placeholder={t("phone-number")}
                 />
               </FloatingLabel>
             </div>
@@ -117,33 +120,36 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
               onClick={nextStep}
               disabled={phoneNumber.length !== 12}
             >
-              Get Started
+              {t("get-started")}
             </button>
             <div className="termsCondition">
               <p>
-                By clicking Continue, you agree to <Link href="/">Gondli Terms & Conditions</Link> and <Link href="/">Privacy Policy</Link>
+              {t("agree")} <Link href="/">{t("terms")}</Link> {t("and")} <Link href="/">{t("privacy")}</Link>
               </p>
             </div>
             <div className="or">
-              <p>
-                <span>Or</span>
-              </p>
-            </div>
-            <div className="socialLogin">
-              <button className="facebook">
-                <Image priority  src="/images/notifications/facebook.svg" width={20} height={20} alt="facebook" />
-                <p>Continue with Facebook</p>
-              </button>
-              <button className="google">
-                <Image priority  src="/images/notifications/google.svg" width={20} height={20} alt="google" />
-                <p>Continue with Google</p>
-              </button>
-            </div>
-            <div className="alreadyAccount">
-              <p>
-                Already have an account? <span onClick={handleOpenLoginModal}>Log in</span> or <span>Continue as Guest</span>
-              </p>
-            </div>
+  <p>
+    <span>{t("or")}</span>
+  </p>
+</div>
+<div className="socialLogin">
+  <button className="facebook">
+    <Image priority src="/images/notifications/facebook.svg" width={20} height={20} alt="facebook" />
+    <p>{t("continue-with-facebook")}</p>
+  </button>
+  <button className="google">
+    <Image priority src="/images/notifications/google.svg" width={20} height={20} alt="google" />
+    <p>{t("continue-with-google")}</p>
+  </button>
+</div>
+<div className="alreadyAccount">
+  <p>
+    {t("already-have-account")}{" "}
+    <span onClick={handleOpenLoginModal}>{t("log-in")}</span> {t("or")}{" "}
+    <span>{t("continue-as-guest")}</span>
+  </p>
+</div>
+
           </Modal.Body>
         </React.Fragment>
       )}
@@ -159,8 +165,8 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
           </Modal.Header>
           <Modal.Body>
             <div className="text-center">
-              <h2 className="title">Confirm Your Number</h2>
-              <p className="description">Enter the code sent to {phoneNumber}</p>
+            <h2 className="title">{t("confirm-your-number")}</h2>
+            <p className="description">{t("enter-code-sent", { phoneNumber })}</p>
               <div className="otp-input">
                 {otp.map((value, index) => (
                   <input
@@ -179,7 +185,7 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
                 disabled={!isOtpComplete}
                 onClick={nextStep}
               >
-                Continue
+                {t("continue")}
               </button>
             </div>
           </Modal.Body>
@@ -197,38 +203,38 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
           </Modal.Header>
           <Modal.Body>
             <div className="text-center">
-              <h2 className="title">Finish Signing Up</h2>
-              <p className="description">One last step and you are all good to go</p>
-              <FloatingLabel className='mb-2' controlId="floatingFullName" label="Full Name">
+            <h2 className="title">{t("finish-signing-up")}</h2>
+            <p className="description">{t("last-step")}</p>
+              <FloatingLabel className='mb-2' controlId="floatingFullName" label={t("full-name")}>
                 <Form.Control
                   type="text"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
-                  placeholder="Full Name"
+                  placeholder={t("full-name")}
                   isInvalid={!!errors.fullName}
                 />
                 <Form.Control.Feedback type="invalid">
                   {errors.fullName}
                 </Form.Control.Feedback>
               </FloatingLabel>
-              <FloatingLabel className='mb-2' controlId="floatingEmail" label="Email Address">
+              <FloatingLabel className='mb-2' controlId="floatingEmail" label={t("email-address")}>
                 <Form.Control
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Email Address"
+                  placeholder={t("email-address")}
                   isInvalid={!!errors.email}
                 />
                 <Form.Control.Feedback type="invalid">
                   {errors.email}
                 </Form.Control.Feedback>
               </FloatingLabel>
-              <FloatingLabel controlId="floatingBirthday" label="Birthday">
+              <FloatingLabel controlId="floatingBirthday" label={t("birthday")}>
                 <Form.Control
                   type="date"
                   value={birthday}
                   onChange={(e) => setBirthday(e.target.value)}
-                  placeholder="Birthday"
+                  placeholder={t("birthday")}
                   isInvalid={!!errors.birthday}
                 />
                 <Form.Control.Feedback type="invalid">
@@ -240,7 +246,7 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
                 onClick={nextStep}
                 disabled={!isDetailsComplete}
               >
-                Continue
+                {t("continue")}
               </button>
             </div>
           </Modal.Body>
@@ -253,12 +259,12 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
           <Modal.Body>
             <div className="text-center">
             <Image priority className='setup' src="/images/notifications/gondli.svg" width={60} height={60} alt="gondli" />
-              <h2 className="title">Welcome to Gondli</h2>
+              <h2 className="title">{t("welcome-to-gondli")}</h2>
               <p className="description mb-0">
-                We are happy to see you here. Let’s make the wellness tailored for you.
+                {t("happy-to-see-you")}
               </p>
               <button className="get-started active" onClick={nextStep}>
-                Get Started
+              {t("get-started")}
               </button>
             </div>
           </Modal.Body>
@@ -276,8 +282,8 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
           </Modal.Header>
           <Modal.Body>
             <div className="text-center">
-              <h2 className="title">Select Your Interests</h2>
-              <p className="description">Select up to 5 categories that interest you to get more tailored offers</p>
+            <h3 className="title">{t("select-your-interests")}</h3>
+            <p className="description">{t("select-up-to-five")}</p>
               <div className="interests-grid">
                 {['Yoga', 'Fitness', 'Massage', 'Sauna', 'Spa', 'Reiki', 'Chiropractic', 'Pilates', 'Meditation', 'Nutrition', 'Ayurveda', 'Acupuncture', 'Aromatherapy', 'Counseling', 'Detox', 'Mindfulness', 'Retreats', 'Coaching', 'Tai Chi'].map((interest) => (
                   <button
@@ -289,13 +295,13 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
                   </button>
                 ))}
               </div>
-              <p className='noSelected'>{selectedInterests.length} Selected</p>
+              <p className='noSelected'>{selectedInterests.length} {t("selected-count")}</p>
               <button
                 className={`get-started ${isPersonalizationComplete ? 'active' : ''}`}
                 disabled={!isPersonalizationComplete}
                 onClick={nextStep}
               >
-                Personalize My Feed
+                {t("personalize-my-feed")}
               </button>
             </div>
           </Modal.Body>
@@ -308,10 +314,10 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
           <Modal.Body>
             <div className="text-center">
             <Image priority className='setup' src="/images/notifications/setup.svg" width={60} height={60} alt="setup" />
-              <h2 className="title">You are all set up!</h2>
-              <p className="description mb-0">Now you can check all the available offers tailored only for you</p>
+              <h2 className="title">{t("setup-complete")}</h2>
+              <p className="description mb-0">{t("avail-offer")}</p>
               <button className="get-started active" onClick={onClose}>
-                Dive into Gondli
+              {t("dive")}
               </button>
             </div>
           </Modal.Body>

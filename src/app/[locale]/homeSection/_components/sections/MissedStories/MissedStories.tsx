@@ -8,6 +8,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import Image from "next/image";
 import Loader from "../Loader/Loader";
+import { useTranslations } from 'next-intl';
+
 
 interface SlideData {
   title: string;
@@ -32,6 +34,7 @@ const slideData: SlideData[] = [
 ];
 
 const MissedStories: React.FC = () => {
+  const t = useTranslations();
   const [currentImage, setCurrentImage] = useState<string[]>(slideData.map((item) => item.imageSrc));
   const [progress, setProgress] = useState<number[]>(slideData.map(() => 0));
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -144,7 +147,7 @@ useEffect(() => {
     <div className="missedStories">
     <div className="container">
       <div className="title">
-        <h2>Stories You Missed</h2>
+        <h2>{t('missed-stories')}</h2>
       </div>
 
       {isLoading ? (

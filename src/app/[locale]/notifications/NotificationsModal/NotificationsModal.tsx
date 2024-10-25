@@ -2,6 +2,7 @@ import React from 'react';
 import { Modal } from 'react-bootstrap';
 import './NotificationsModal.scss';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 interface NotificationsModalProps {
   show: boolean;
@@ -9,6 +10,7 @@ interface NotificationsModalProps {
 }
 
 const NotificationsModal: React.FC<NotificationsModalProps> = ({ show, onClose }) => {
+  const t = useTranslations();
   return (
     <Modal show={show} onHide={onClose} centered className="notifications-modal">
       <Modal.Header closeButton>
@@ -18,10 +20,10 @@ const NotificationsModal: React.FC<NotificationsModalProps> = ({ show, onClose }
       </Modal.Header>
       <Modal.Body>
         <div className="text-center">
-          <h2 className="notifications-title">Top Ambassador Badge</h2>
+          <h2 className="notifications-title">{t('ambassador-badge')}</h2>
           <p className="notifications-description">
-            You have been selected as <b>Top Ambassador</b> by <b>Spavitality Haven.</b> <br />
-            Would you like to show it off?
+            {t('been-select')} <b>{t('top-ambasador')}</b> {t('by')} <b>Spavitality Haven.</b> <br />
+           {t('show-it')}
           </p>
         </div>
         <div className="badgeBack">
@@ -46,8 +48,12 @@ const NotificationsModal: React.FC<NotificationsModalProps> = ({ show, onClose }
         </div>
       </Modal.Body>
       <div className="buttons">
-        <button onClick={onClose}>No Thanks</button>
-        <button onClick={onClose}>Show Off</button>
+        <button onClick={onClose}>
+          {t('no-thanks')}
+        </button>
+        <button onClick={onClose}>
+          {t('show-off')}
+        </button>
       </div>
     </Modal>
   );

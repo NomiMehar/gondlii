@@ -2,6 +2,7 @@ import React from 'react';
 import { Modal } from 'react-bootstrap';
 import './LanguageModal.scss';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 interface LanguageModalProps {
   show: boolean;
@@ -16,6 +17,7 @@ const LanguageModal: React.FC<LanguageModalProps> = ({
   selectedLanguage = 'English (United States)',
   handleLanguageChange,
 }) => {
+  const t = useTranslations();
   return (
     <Modal show={show} onHide={onClose} centered className="language-modal">
       <Modal.Header closeButton>
@@ -25,9 +27,9 @@ const LanguageModal: React.FC<LanguageModalProps> = ({
       </Modal.Header>
       <Modal.Body>
         <div className="text-center">
-        <h2 className="language-title">Select Language</h2>
+        <h2 className="language-title">{t("select-language")}</h2>
         <p className="language-description">
-          Choose your preferred language for Gondli
+          {t("preferred-language")}
         </p>
         </div>
         <div className="language-options">
@@ -78,7 +80,7 @@ const LanguageModal: React.FC<LanguageModalProps> = ({
         </div>
       </Modal.Body>
         <button className="change-language-button" onClick={onClose}>
-          Change Language
+          {t("change-language")}
         </button>
     </Modal>
   );

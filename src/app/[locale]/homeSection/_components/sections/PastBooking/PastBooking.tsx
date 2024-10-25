@@ -8,6 +8,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import Image from 'next/image';
 import Loader from '../Loader/Loader';
+import { useTranslations } from 'next-intl';
 
 interface SlideData {
   title: string;
@@ -71,6 +72,7 @@ const slideData: SlideData[] = [
 
 const PastBooking: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const t = useTranslations();
 
   useEffect(() => {
     // Preload images before displaying the Swiper
@@ -95,7 +97,7 @@ const PastBooking: React.FC = () => {
     <div className="pastBooking">
       <div className="container">
         <div className="title">
-          <h2>Based on Your Past Bookings</h2>
+          <h2>{t('past-booking')}</h2>
         </div>
 
         {isLoading ? (

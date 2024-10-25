@@ -3,6 +3,7 @@
 import React from 'react';
 import './Recommended.scss';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 interface SlideData {
   title: string;
@@ -147,11 +148,12 @@ const slideData: SlideData[] = [
   
 
 const Recommended: React.FC = () => {
+  const t = useTranslations();
   return (
     <div className="recommended">
       <div className="container">
         <div className="title">
-          <h2>Recommended For You</h2>
+          <h2>{t('recommended')}</h2>
           <button><Image priority width={20} height={20} src="/images/home/filter.svg" alt="filter" /> Filter</button>
         </div>
        <div className="row">

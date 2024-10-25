@@ -8,10 +8,11 @@ import { usePathname } from 'next/navigation'; // Correct import
 import Image from 'next/image';
 import SignupModal from '../SignupModal/SignupModal';
 import LoginModal from '../LoginModal/LoginModal';
+import { useTranslations } from 'next-intl';
 const SocialIcons: React.FC = () => {
   const locale = useLocale();
   const pathname = usePathname(); // Get the current pathname
-  
+  const t = useTranslations();
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [signupModal, setSignupModal] = useState(false);
@@ -95,13 +96,13 @@ const SocialIcons: React.FC = () => {
         {openDropdown === 1 && (
           <ul className="dropdown-menu">
             <li className="dropdown-item">
-              <Link onClick={handleLinkClick} href={`/${locale}/digitalContent`}>Digital Content</Link>
+              <Link onClick={handleLinkClick} href={`/${locale}/digitalContent`}>{t("digital-content")}</Link>
             </li>
             <li className="dropdown-item">
-              <Link onClick={handleLinkClick} href={`/${locale}/charityEvent`}>Charity Events</Link>
+              <Link onClick={handleLinkClick} href={`/${locale}/charityEvent`}>{t("charity-events")}</Link>
             </li>
             <li className="dropdown-item">
-              <Link onClick={handleLinkClick} href={`/${locale}/wellnessService`}>Wellness Service</Link>
+              <Link onClick={handleLinkClick} href={`/${locale}/wellnessService`}>{t("wellness-service")}</Link>
             </li>
           </ul>
         )}
@@ -203,7 +204,7 @@ const SocialIcons: React.FC = () => {
           <li className="dropdown-item">
             <Link onClick={handleLinkClick} href={`/${locale}/notifications`}>
             <div className="seeAll">
-              <p>See All Notifications</p>
+              <p>{t("see-all-notifications")}</p>
             </div>
             </Link>
           </li>
@@ -222,43 +223,43 @@ const SocialIcons: React.FC = () => {
           <li className="dropdown-item">
             <Link onClick={handleLinkClick} href="/">
             <Image priority width={32} height={32} src="/images/home/Notifications.svg" alt="Notifications" />
-            <p>Profile</p>
+            <p>{t('profile')}</p>
             </Link>
           </li>
           <li className="dropdown-item">
             <Link onClick={handleLinkClick} href="/">
             <Image priority width={32} height={32} src="/images/home/Notifications-1.svg" alt="Notifications" />
-            <p>Settings</p>
+            <p>{t("settings")}</p>
             </Link>
           </li>
           <li className="dropdown-item">
             <Link onClick={handleLinkClick} href="/">
             <Image priority width={32} height={32} src="/images/home/Notifications-2.svg" alt="Notifications" />
-            <p>Membership</p>
+            <p>{t("membership")}</p>
             </Link>
           </li>
           <li className="dropdown-item" onClick={openModal}>
             <div className='language' onClick={handleLinkClick}>
             <Image priority width={32} height={32} src="/images/home/Notifications-3.svg" alt="Notifications" />
-            <p>Language</p>
+            <p>{t("language")}</p>
             </div>
           </li>
           <li className="dropdown-item" onClick={openSignupModal}>
             <div className='language' onClick={handleLinkClick}>
             <Image priority width={32} height={32} src="/images/home/Notifications-3.svg" alt="Notifications" />
-            <p>Signup</p>
+            <p>{t("signup")}</p>
             </div>
           </li>
           <li className="dropdown-item" onClick={openLoginModal}>
             <div className='language' onClick={handleLinkClick}>
             <Image priority width={32} height={32} src="/images/home/Notifications-3.svg" alt="Notifications" />
-            <p>Login</p>
+            <p>{t("login")}</p>
             </div>
           </li>
           <li className="dropdown-item borderTop">
             <Link onClick={handleLinkClick} href="/">
             <Image priority width={32} height={32} src="/images/home/Notifications-4.svg" alt="Notifications" />
-            <p>Log Out</p>
+            <p>{t("log-out")}</p>
             </Link>
           </li>
         </ul>

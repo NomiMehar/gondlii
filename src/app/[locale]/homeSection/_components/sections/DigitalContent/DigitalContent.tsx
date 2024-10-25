@@ -8,6 +8,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import Image from 'next/image';
 import Loader from '../Loader/Loader';
+import { useTranslations } from 'next-intl';
 
 interface SlideData {
   title: string;
@@ -63,7 +64,7 @@ const slideData: SlideData[] = [
   ];
 const DigitalContent: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
-
+  const t = useTranslations();
   useEffect(() => {
     // Preload images before displaying the Swiper
     const preloadImages = () => {
@@ -86,7 +87,7 @@ const DigitalContent: React.FC = () => {
     <div className="digitalContent">
       <div className="container">
         <div className="title">
-          <h2>Explore Digital Content</h2>
+          <h2>{t('explore-content')}</h2>
         </div>
         {isLoading ? (
           <Loader className='sliderLoader' />

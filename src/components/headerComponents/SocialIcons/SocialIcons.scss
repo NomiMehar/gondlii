@@ -124,6 +124,8 @@
         .dropdown-item {
           display: block;
           padding: 10px 15px;
+          word-break: break-all;
+          text-wrap: wrap;
           cursor: pointer;
           &:active {
             background: none;

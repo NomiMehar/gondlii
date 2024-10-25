@@ -3,7 +3,8 @@
 import React, { useState } from 'react';
 import './NotificationList.scss';
 import Image from 'next/image';
-import NotificationsModal from '../NotificationsModal/NotificationsModal'; // Import modal component
+import NotificationsModal from '../NotificationsModal/NotificationsModal';
+import { useTranslations } from 'next-intl';
 const notificationsData = [
   {
     "id": 1,
@@ -148,6 +149,7 @@ const notificationsData = [
   }
 ];
 const NotificationList: React.FC = () => {
+  const t = useTranslations();
   const [notifications, setNotifications] = useState(notificationsData);
   const [dropdownVisible, setDropdownVisible] = useState<number | null>(null);
   const [modalVisible, setModalVisible] = useState<boolean>(false);
@@ -201,10 +203,10 @@ const NotificationList: React.FC = () => {
         <div className="container">
           <div className="notificationsWrapper">
             <div className="header">
-              <h2>Notifications</h2>
+            <h2>{t('notifications')}</h2>
               <div className="btns">
-                <button className="btn" onClick={handleMarkAllAsRead}>Mark all as read</button>
-                <button className="btn" onClick={handleClearAll}>Clear all</button>
+              <button className="btn" onClick={handleMarkAllAsRead}>{t('markAllAsRead')}</button>
+              <button className="btn" onClick={handleClearAll}>{t('clearAll')}</button>
               </div>
             </div>
             <div className="list">
@@ -268,7 +270,7 @@ const NotificationList: React.FC = () => {
                                 src="/images/notifications/check.svg"
                                 alt="check"
                               />
-                              {notification.active ? 'Mark as Read' : 'Mark as Unread'}
+                              {notification.active ? t('markAsRead') : t('markAsUnread')}
                             </button>
                             <button
                               className="dropdown-item"
@@ -280,7 +282,7 @@ const NotificationList: React.FC = () => {
                                 src="/images/notifications/del.svg"
                                 alt="del"
                               />
-                              Delete
+                             {t('delete')}
                             </button>
                           </div>
                         )}
@@ -290,7 +292,7 @@ const NotificationList: React.FC = () => {
                 ))
               ) : (
                 <div className="text-center">
-                  <p className='mt-5 pt-5'>No notifications available.</p>
+                  <p className="mt-5 pt-5">{t('noNotifications')}</p>
                 </div>
               )}
             </div>

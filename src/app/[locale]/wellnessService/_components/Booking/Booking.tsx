@@ -2,47 +2,73 @@ import React, { useState, useRef, useEffect } from 'react';
 import './Booking.scss';
 import Image from 'next/image';
 import CustomDatePicker from './CustomDatePicker';
+import { useTranslations } from 'next-intl';
 
-const servicesData = [
-    {
-        category: "Yoga",
-        image: "/images/services/service1.svg",
-        services: [
-            { circle: "/images/services/circle.svg", name: "Gentle Flow Yoga Class" },
-            { circle: "/images/services/circle.svg", name: "Power Vinyasa Yoga Workshop" },
-            { circle: "/images/services/circle.svg", name: "Restorative Yoga and Meditation" },
-        ],
-    },
-    {
-        category: "Spa",
-        image: "/images/services/service2.svg",
-        services: [
-            { circle: "/images/services/circle.svg", name: "Tranquil Relaxation Massage" },
-            { circle: "/images/services/circle.svg", name: "Revitalizing Aromatherapy Facial" },
-        ],
-    },
-    {
-        category: "Fitness",
-        image: "/images/services/service3.svg",
-        services: [
-            { circle: "/images/services/circle.svg", name: "Energizing Cardio Fitness Class" },
-            { circle: "/images/services/circle.svg", name: "Strength and Conditioning Bootcamp" },
-            { circle: "/images/services/circle.svg", name: "Mindful Movement Yoga Fusion" },
-        ],
-    },
-];
-
-const timeOptions = [
-    "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30"
-];
 
 const Booking: React.FC = () => {
+    const t = useTranslations();
     const [bookingCount, setBookingCount] = useState(1);
     const [selectedService, setSelectedService] = useState("");
     const [selectedDate, setSelectedDate] = useState("");
     const [selectedTime, setSelectedTime] = useState("");
-
+    
     const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
+    const servicesData = [
+        {
+            category: t('yoga'),
+          image: "/images/services/service1.svg",
+          services: [
+            {
+              name: t("gentle_flow_yoga_class"),
+              circle: "/images/services/circle.svg",
+            },
+            {
+              name: t("power_vinyasa_yoga_workshop"),
+              circle: "/images/services/circle.svg",
+            },
+            {
+              name: t("restorative_yoga_and_meditation"),
+              circle: "/images/services/circle.svg",
+            },
+          ],
+        },
+        {
+            category: t('spa'),
+          image: "/images/services/service2.svg",
+          services: [
+            {
+              name: t("tranquil_relaxation_massage"),
+              circle: "/images/services/circle.svg",
+            },
+            {
+              name: t("revitalizing_aromatherapy_facial"),
+              circle: "/images/services/circle.svg",
+            },
+          ],
+        },
+        {
+            category: t('fitness'),
+          image: "/images/services/service3.svg",
+          services: [
+            {
+              name: t("energizing_cardio_fitness_class"),
+              circle: "/images/services/circle.svg",
+            },
+            {
+              name: t("strength_and_conditioning_bootcamp"),
+              circle: "/images/services/circle.svg",
+            },
+            {
+              name: t("mindful_movement_yoga_fusion"),
+              circle: "/images/services/circle.svg",
+            },
+          ],
+        },
+      ];
+    
+    const timeOptions = [
+        "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30"
+    ];
 
     const handleIncrement = () => setBookingCount(prevCount => prevCount + 1);
     const handleDecrement = () => bookingCount > 1 && setBookingCount(prevCount => prevCount - 1);
@@ -70,11 +96,11 @@ const Booking: React.FC = () => {
         <div className="booking">
             <div className="title">
                 <h2>25 - 110 CHF</h2>
-                <p>Price Range</p>
+                <p>{t('price-range')}</p>
             </div>
             <div className="selectService">
                 <div className="booking">
-                    <p>Booking For</p>
+                    <p>{t('booking-for')}</p>
                     <div className="add">
                         <button onClick={handleDecrement}>-</button>
                         <p>{bookingCount}</p>
@@ -85,7 +111,7 @@ const Booking: React.FC = () => {
                 {/* Accordion for Service Selection */}
                 <div className={`booking-accordion ${activeAccordion === 'service' ? 'active' : ''}`}>
                     <button className="accordion-btn" onClick={() => handleAccordionToggle('service')}>
-                        {selectedService || "Service"}
+                        {selectedService || t('services')}
                         <Image priority  src="/images/services/dropdown.svg" width={8} height={4} alt="dropdown" className="accordion-icon" />
                     </button>
 
@@ -114,7 +140,7 @@ const Booking: React.FC = () => {
                 {/* Accordion for Date Selection */}
                 <div className={`booking-accordion ${activeAccordion === 'date' ? 'active' : ''}`}>
                     <button className="accordion-btn" onClick={() => handleAccordionToggle('date')}>
-                        {selectedDate || "Select Date"}
+                        {selectedDate || t('select-date')}
                         <Image priority  src="/images/services/dropdown.svg" width={8} height={4} alt="dropdown" className="accordion-icon" />
                     </button>
 
@@ -128,7 +154,7 @@ const Booking: React.FC = () => {
                 {/* Accordion for Time Selection */}
                 <div className={`booking-accordion ${activeAccordion === 'time' ? 'active' : ''}`}>
                     <button className="accordion-btn" onClick={() => handleAccordionToggle('time')}>
-                        {selectedTime || "Select Start Time"}
+                        {selectedTime || t('select-time')}
                         <Image priority  src="/images/services/dropdown.svg" width={8} height={4} alt="dropdown" className="accordion-icon" />
                     </button>
 
@@ -147,7 +173,9 @@ const Booking: React.FC = () => {
                     )}
                 </div>
             </div>
-            <button className='book'>Book</button>
+            <button className='book'>
+                {t('book')}
+            </button>
         </div>
     );
 };

@@ -1,8 +1,12 @@
 import React from 'react';
 import './HeaderInput.scss';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 
 const HeaderInput: React.FC = () => {
+  const t = useTranslations();
+  const locale = useLocale();
   return (
     <React.Fragment>
       <div className="headerInput">
@@ -10,9 +14,9 @@ const HeaderInput: React.FC = () => {
         <input
           spellCheck='false'
           type="text"
-          placeholder="Enter service, location, or therapist"
+          placeholder={t("search-paceholder")}
         />
-        <button>Search</button>
+        <button>{t("search")}</button>
       </div>
     </React.Fragment>
   );

@@ -3,8 +3,10 @@
 import React from 'react';
 import './Donators.scss';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 const Donators: React.FC = () => {
+    const t = useTranslations();
     // Define the reviews array
     const donators = [
         {
@@ -47,7 +49,7 @@ const Donators: React.FC = () => {
 
     return (
         <div className="donators">
-            <h3>Donators</h3>
+            <h3>{t('donators')}</h3>
             {donators.map((review, index) => (
                 <div className="block" key={index}>
                     <div className="user">

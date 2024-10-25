@@ -415,6 +415,7 @@
               bottom: 20px;
               left: 50%;
               transform: translateX(-50%);
+              width: max-content;
               cursor: pointer;
               &:hover {
                 background-color: #343434;

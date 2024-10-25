@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import Image from 'next/image';
 import './RecentUpdateModal.scss';
+import { useTranslations } from "next-intl";
+
 const images = [
     '/images/services/modalslide1.svg',
     '/images/services/mainBanner.svg',
@@ -48,6 +50,7 @@ const reviews = [
 const Carousel = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isPlaying, setIsPlaying] = useState(true);
+    const t = useTranslations();
 
     useEffect(() => {
         if (isPlaying) {
@@ -81,7 +84,7 @@ const Carousel = () => {
             <div className="carousel-controls">
                 <div className="carousel-position">
                     <div className="play">
-                        <button className="pause-btn" onClick={handlePause}><Image priority  src="/images/services/pause.svg" width={16} height={16} alt='pause' /> {isPlaying ? 'Pause' : 'Play'}</button>
+                        <button className="pause-btn" onClick={handlePause}><Image priority  src="/images/services/pause.svg" width={16} height={16} alt='pause' /> {isPlaying ? t('pause') : t('play')}</button>
                     </div>
                     <div className="nextBack">
                         <button className="back-btn" onClick={handleBack}><Image priority  src="/images/services/previous.svg" width={24} height={24} alt='pause' /></button>
@@ -110,6 +113,7 @@ interface RecentUpdateModalProps {
 }
 
 const RecentUpdateModal: React.FC<RecentUpdateModalProps> = ({ showModal, onClose }) => {
+    const t = useTranslations();
     return (
         <Modal show={showModal} onHide={onClose} centered size="lg" className="custom-modal">
             <Modal.Body className="modal-body-custom">
@@ -135,7 +139,7 @@ const RecentUpdateModal: React.FC<RecentUpdateModalProps> = ({ showModal, onClos
                         </p>
                         {/* Comments Section */}
                         <div className="comments-section">
-                            <h3>Comments</h3>
+                            <h3>{t('comments')}</h3>
                             <div className="comments">
                             {reviews.map((review, index) => (
                                 <div className="block" key={index}>
@@ -159,7 +163,7 @@ const RecentUpdateModal: React.FC<RecentUpdateModalProps> = ({ showModal, onClos
 
                         {/* Add Comment Section */}
                         <div className="add-comment">
-                            <input type="text" placeholder="Add Comment" />
+                            <input type="text" placeholder={t('add-comment')} />
                             <Image priority  src="/images/home/user.svg" width={28} height={28} alt='user' />
                         </div>
                     </div>

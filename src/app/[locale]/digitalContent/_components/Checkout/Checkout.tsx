@@ -3,8 +3,10 @@
 import React, { useState } from 'react';
 import './Checkout.scss';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 const Checkout: React.FC = () => {
+    const t = useTranslations();
     const [isOneTime, setIsOneTime] = useState(false); // State for One-time Payment checkbox
     const [isSubscription, setIsSubscription] = useState(false); // State for Subscription checkbox
 
@@ -22,10 +24,10 @@ const Checkout: React.FC = () => {
         <div className="checkout">
             <div className="title">
                 <h2>65 CHF</h2>
-                <p>One-time Payment</p>
+                <p>{t('one-time')}</p>
             </div>
             <div className="subscription">
-                <p>Activate <Link href="/">Subscription</Link> and have unlimited access to all the classes listed on Gondli</p>
+                <p>{t('activate')} <Link href="/">{t('subscription')}</Link> {t('class-list')}</p>
             </div>
             <div className="paymentMethod">
                 <p className='method'>Payment Method</p>
@@ -37,7 +39,7 @@ const Checkout: React.FC = () => {
                             onChange={handleOneTimeChange}
                         />
                         <span className="checkmark"></span>
-                        One-time Payment
+                        {t('one-time')}
                     </label>
                     <label className="custom-checkbox">
                         <input
@@ -46,11 +48,11 @@ const Checkout: React.FC = () => {
                             onChange={handleSubscriptionChange}
                         />
                         <span className="checkmark"></span>
-                        Gondli Subscription
+                        {t('subscription')}
                     </label>
                 </div>
             </div>
-            <button>Proceed to Checkout</button>
+            <button>{t('checkout')}</button>
         </div>
     );
 };

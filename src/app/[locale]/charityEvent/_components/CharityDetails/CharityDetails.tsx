@@ -5,8 +5,10 @@ import './CharityDetails.scss';
 import Image from 'next/image';
 import Donators from '../Donators/Donators';
 import Fundraiser from '../Fundraiser/Fundraiser';
+import { useTranslations } from 'next-intl';
 
 const CharityDetails: React.FC = () => {
+  const t = useTranslations();
   const [isExpanded, setIsExpanded] = useState(true); // State to toggle Read More / Read Less
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State to toggle dropdown visibility
 
@@ -44,13 +46,13 @@ const CharityDetails: React.FC = () => {
             <Image priority  src="/images/charity/charityBanner.svg" width={100} height={100} alt="charityBanner" />
            </div>
             <div className="aboutClass">
-              <h3>Charity Details</h3>
+              <h3>{t('charity-detail')}</h3>
               <p>
               Unlocking the boundless potential within every individual, our education and literacy programs stand as beacons of hope in underprivileged communities. With a steadfast commitment to empowerment, we believe that access to quality education is not just a privilege but a fundamental right. In the heart of {isExpanded ? (
                   <>disadvantaged... </>
                 ) : 'disadvantaged neighborhoods, we sow the seeds of knowledge, nurturing minds hungry for learning. Through innovative teaching methodologies and tailored curriculums, we strive to ignite a passion for learning that transcends circumstances.'}
               <button className="read-more" onClick={toggleReadMore}>
-                {isExpanded ? 'Read More' : 'Read Less'}
+              {isExpanded ? t('readMore') : t('readLess')}
               </button>
               </p>
               <div className="insights">
@@ -59,18 +61,18 @@ const CharityDetails: React.FC = () => {
                 <Image priority width={40} height={40} src="/images/charity/qual.svg" alt="merck" />
                 </div>
                 <div>
-                    <p className='title'>Hosted By Give & Gain Initiative</p>
-                    <p className='since'>Member Since 02 Jan, 2024</p>
+                    <p className='title'>{t('hosted-by')} Give & Gain Initiative</p>
+                    <p className='since'>{t('member-since')} 02 Jan, 2024</p>
                 </div>
                 </div>
                 <div className="followInsight">
                 <div className="buttons">
-                    <button>Fundraiser Insights</button>
-                    <button onClick={toggleDropdown}>{isDropdownOpen ? "Following" : "Follow"} <Image priority  src="/images/content/arrowDown.svg" width={8} height={4} alt='arrowDown' /></button>
+                    <button>{t('fundraiser-insights')}</button>
+                    <button onClick={toggleDropdown}>{isDropdownOpen ? t('following') : t('follow')} <Image priority  src="/images/content/arrowDown.svg" width={8} height={4} alt='arrowDown' /></button>
                     {isDropdownOpen && (
                       <div className="dropdown">
-                        <div className='dropdown-item'> <Image priority  src="/images/content/notifications.svg" width={32} height={32} alt='notifications' />Follow & Receive Notifications</div>
-                        <div className='dropdown-item'> <Image priority  src="/images/content/block.svg" width={32} height={32} alt='block' />Follow Without Notifications</div>
+                        <div className='dropdown-item'> <Image priority  src="/images/content/notifications.svg" width={32} height={32} alt='notifications' />{t('recieve-notification')}</div>
+                        <div className='dropdown-item'> <Image priority  src="/images/content/block.svg" width={32} height={32} alt='block' />{t('without-notification')}</div>
                       </div>
                     )}
                 </div>
