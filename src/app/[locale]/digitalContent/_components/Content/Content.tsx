@@ -9,24 +9,22 @@ import { useTranslations } from 'next-intl';
 
 const Content: React.FC = () => {
   const t = useTranslations();
-  const videoRef = useRef<HTMLVideoElement | null>(null); // Specify HTMLVideoElement type
-  const [isPlaying, setIsPlaying] = useState(false); // State to track video playback
-  const [isExpanded, setIsExpanded] = useState(true); // State to toggle Read More / Read Less
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State to toggle dropdown visibility
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const services = [
     { title: t('introduction_to_pilates'), time: '10 Minutes' },
     { title: t('core_strengthening_exercises'), time: '15 Minutes' },
     { title: t('flexibility_and_mobility'), time: '12 Minutes' },
     { title: t('mindful_movement_and_flow'), time: '11 Minutes' },
-];
-
+  ];
 
   const handlePlayPauseVideo = () => {
     if (videoRef.current) {
       if (isPlaying) {
         videoRef.current.pause();
-        videoRef.current.currentTime = 0; // Reset the video to the start
         setIsPlaying(false);
       } else {
         videoRef.current.play();
@@ -36,14 +34,12 @@ const Content: React.FC = () => {
   };
 
   const toggleReadMore = () => {
-    setIsExpanded(!isExpanded); // Toggle the expanded state
+    setIsExpanded(!isExpanded);
   };
 
   const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen); // Toggle the dropdown visibility
+    setIsDropdownOpen(!isDropdownOpen);
   };
-
-
 
   return (
     <div className="contentSection">
@@ -52,10 +48,10 @@ const Content: React.FC = () => {
           <div className="title">
             <h2>Pilates Workshop</h2>
             <div className="info">
-              <span className='rating'>
+              <span className="rating">
                 <Image priority width={12} height={12} src="/images/home/star.svg" alt="star" /> 9.2
               </span>
-              <span className='minute'>44 Minutes</span>
+              <span className="minute">44 Minutes</span>
             </div>
           </div>
           <div className="likeUpload">
@@ -72,10 +68,9 @@ const Content: React.FC = () => {
             <div className="videoBanner">
               <video
                 ref={videoRef}
-                loop
-                muted
-                className={isPlaying ? 'video playing' : 'video paused'}
+                className={`video ${isPlaying ? 'playing' : 'paused'}`}
                 poster='/images/content/videoBanner.svg'
+                controls={isPlaying} // Show controls only when playing
                 onClick={handlePlayPauseVideo}
               >
                 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
@@ -146,6 +141,6 @@ const Content: React.FC = () => {
       </div>
     </div>
   );
-};
+}; 
 
 export default Content;
