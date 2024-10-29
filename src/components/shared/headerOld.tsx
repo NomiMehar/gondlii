@@ -63,7 +63,7 @@ export default function Header() {
           ))}
         </ul>
       </nav>
-      <div className='flex w-full justify-end gap-5'>
+      <div className='flex w-full justify-end gap-3'>
         <Link href='/#waitlist'>
           <Button>{t('join-waitlist')}</Button>
         </Link>

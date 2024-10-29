@@ -9,6 +9,8 @@ import "swiper/css/navigation";
 import Image from "next/image";
 import Loader from "../Loader/Loader";
 import { useTranslations } from 'next-intl';
+import Link from "next/link";
+import RecentUpdateModal from "@/app/[locale]/wellnessService/_components/RecentUpdateModal/RecentUpdateModal";
 
 
 interface SlideData {
@@ -43,6 +45,7 @@ const MissedStories: React.FC = () => {
   const [progressIntervalId, setProgressIntervalId] = useState<(ReturnType<typeof setInterval> | null)[]>(slideData.map(() => null));
   const [showPagination, setShowPagination] = useState<boolean[]>(slideData.map(() => false));
   const [isLoading, setIsLoading] = useState<boolean>(true); // Add loading state
+  const [upadateShowModal, setUpadateShowModal] = useState(false);
   const swiperRef = useRef<any>(null);
 
 // Function to handle image preloading
@@ -142,8 +145,15 @@ useEffect(() => {
     if (slideIntervalId[index]) clearInterval(slideIntervalId[index]!);
     if (progressIntervalId[index]) clearInterval(progressIntervalId[index]!);
   };
+  const handleModalOpen = () => {
+    setUpadateShowModal(true); // Show the modal when the title is clicked
+  };
+  const handleModalClose = () => {
+    setUpadateShowModal(false); // Hide the modal when the close button is clicked
+  };
 
   return (
+    <React.Fragment>
     <div className="missedStories">
     <div className="container">
       <div className="title">
@@ -153,7 +163,7 @@ useEffect(() => {
       {isLoading ? (
         <Loader className="missedLoader" />
       ) : (
-        <Swiper
+         <Swiper
           loop={true}
           slidesPerView={6}
           spaceBetween={15}
@@ -175,6 +185,7 @@ useEffect(() => {
             <SwiperSlide key={index} className="swiper-slide">
               <div
                 className="image-wrapper"
+                onClick={handleModalOpen}
                 onMouseEnter={() => handleMouseEnter(index)}
                 onMouseLeave={() => handleMouseLeave(index)}
               >
@@ -201,6 +212,8 @@ useEffect(() => {
       )}
     </div>
   </div>
+  <RecentUpdateModal showModal={upadateShowModal} onClose={handleModalClose} />
+    </React.Fragment>
   );
 };
 

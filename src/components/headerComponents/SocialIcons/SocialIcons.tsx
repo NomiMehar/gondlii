@@ -96,13 +96,7 @@ const SocialIcons: React.FC = () => {
         {openDropdown === 1 && (
           <ul className="dropdown-menu">
             <li className="dropdown-item">
-              <Link onClick={handleLinkClick} href={`/${locale}/digitalContent`}>{t("digital-content")}</Link>
-            </li>
-            <li className="dropdown-item">
               <Link onClick={handleLinkClick} href={`/${locale}/charityEvent`}>{t("charity-events")}</Link>
-            </li>
-            <li className="dropdown-item">
-              <Link onClick={handleLinkClick} href={`/${locale}/wellnessService`}>{t("wellness-service")}</Link>
             </li>
           </ul>
         )}

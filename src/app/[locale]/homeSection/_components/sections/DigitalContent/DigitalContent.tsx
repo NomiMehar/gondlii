@@ -9,6 +9,9 @@ import 'swiper/css/navigation';
 import Image from 'next/image';
 import Loader from '../Loader/Loader';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
+import { useLocale } from 'next-intl';
+
 
 interface SlideData {
   title: string;
@@ -65,6 +68,8 @@ const slideData: SlideData[] = [
 const DigitalContent: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const t = useTranslations();
+  const locale = useLocale();
+
   useEffect(() => {
     // Preload images before displaying the Swiper
     const preloadImages = () => {
@@ -92,7 +97,7 @@ const DigitalContent: React.FC = () => {
         {isLoading ? (
           <Loader className='sliderLoader' />
         ) : (
-        <Swiper
+          <Swiper
           loop={true}
           slidesPerView={4}
           spaceBetween={15}
@@ -108,7 +113,8 @@ const DigitalContent: React.FC = () => {
           }}
         >
           {slideData.map((item, index) => (
-        <SwiperSlide key={index} className="swiper-slide">
+            <SwiperSlide key={index} className="swiper-slide">
+          <Link href={`/${locale}/digitalContent`}>
         <div className="image-wrapper">
           <div className='banner'>
           <Image priority width={100} height={100} className='main-img' src={item.imageSrc} alt={item.title} />
@@ -123,6 +129,7 @@ const DigitalContent: React.FC = () => {
             <span className='minute'>{item.minute}</span>
             </div>
         </div>
+        </Link>
       </SwiperSlide>      
             ))}
         </Swiper>

@@ -29,13 +29,13 @@
     height: auto !important;
     padding: 60px 0 0;
     overflow: hidden;
-
     .swiper-slide {
       height: 100% !important;
       border-radius: 12px;
 
       .image-wrapper {
         position: relative;
+        cursor: pointer;
 
         .main-img {
           width: 100%;

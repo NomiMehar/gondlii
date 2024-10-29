@@ -46,18 +46,22 @@ export default function Header() {
 
           <div className='flex w-full justify-end gap-2'>
             <SocialIcons />
+            {!isHomePage && (
             <Sheet>
               <SheetTrigger>
-                <Menu className='text-white lg:hidden' />
+              <Image className='lg:hidden' priority width={24} height={24} src="/images/home/SearchOutline.svg" alt="SearchOutline" />
               </SheetTrigger>
               <SheetContent side={'top'}>
-                <HeaderInput />
+              <div className="headerSearch">
+              <HeaderInput />
+              </div>
                 <SheetTitle>Header Navigation</SheetTitle>
                 <SheetDescription>
                   The main navigation of the page.
                 </SheetDescription>
               </SheetContent>
             </Sheet>
+            )}
           </div>
         </div>
       </div>

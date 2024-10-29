@@ -4,6 +4,9 @@ import React from 'react';
 import './Recommended.scss';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
+import { useLocale } from 'next-intl';
+
 
 interface SlideData {
   title: string;
@@ -149,6 +152,8 @@ const slideData: SlideData[] = [
 
 const Recommended: React.FC = () => {
   const t = useTranslations();
+  const locale = useLocale();
+
   return (
     <div className="recommended">
       <div className="container">
@@ -159,7 +164,8 @@ const Recommended: React.FC = () => {
        <div className="row">
        {slideData.map((item, index) => (
         <div key={index} className="col-lg-3 col-md-4 px-2 mb-4 md-mb-5">
-        <div className="image-wrapper">
+                <Link href={`/${locale}/wellnessService`}>
+                <div className="image-wrapper">
           <div className='banner'>
           <Image priority width={100} height={100} className='main-img' src={item.imageSrc} alt={item.title} />
           <Image priority width={32} height={32} className='heart' src="/images/home/heart.svg" alt="heart" />
@@ -178,6 +184,7 @@ const Recommended: React.FC = () => {
             </div>
           </div>
         </div>
+</Link>
         </div>
             ))}
        </div>
