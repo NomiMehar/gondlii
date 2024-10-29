@@ -112,7 +112,7 @@ const Booking: React.FC = () => {
                 <div className={`booking-accordion ${activeAccordion === 'service' ? 'active' : ''}`}>
                     <button className="accordion-btn" onClick={() => handleAccordionToggle('service')}>
                         {selectedService || t('services')}
-                        <Image priority  src="/images/services/dropdown.svg" width={8} height={4} alt="dropdown" className="accordion-icon" />
+                        <Image priority quality={100}  src="/images/services/dropdown.svg" width={8} height={4} alt="dropdown" className="accordion-icon" />
                     </button>
 
                     {activeAccordion === 'service' && (
@@ -120,13 +120,13 @@ const Booking: React.FC = () => {
                             {servicesData.map((category, index) => (
                                 <div key={index} className="booking-category">
                                     <h3>
-                                        <Image priority  src={category.image} width={20} height={20} alt={category.image} className="booking-image" />
+                                        <Image priority quality={100}  src={category.image} width={20} height={20} alt={category.image} className="booking-image" />
                                         {category.category}
                                     </h3>
                                     {category.services.map((service, idx) => (
                                         <div key={idx} className="booking-item" onClick={() => handleServiceSelect(service.name)}>
                                             <p>
-                                                <Image priority  src={service.circle} width={20} height={20} alt={service.circle} />
+                                                <Image priority quality={100}  src={service.circle} width={20} height={20} alt={service.circle} />
                                                 {service.name}
                                             </p>
                                         </div>
@@ -141,7 +141,7 @@ const Booking: React.FC = () => {
                 <div className={`booking-accordion ${activeAccordion === 'date' ? 'active' : ''}`}>
                     <button className="accordion-btn" onClick={() => handleAccordionToggle('date')}>
                         {selectedDate || t('select-date')}
-                        <Image priority  src="/images/services/dropdown.svg" width={8} height={4} alt="dropdown" className="accordion-icon" />
+                        <Image priority quality={100}  src="/images/services/dropdown.svg" width={8} height={4} alt="dropdown" className="accordion-icon" />
                     </button>
 
                     {activeAccordion === 'date' && (
@@ -155,7 +155,7 @@ const Booking: React.FC = () => {
                 <div className={`booking-accordion ${activeAccordion === 'time' ? 'active' : ''}`}>
                     <button className="accordion-btn" onClick={() => handleAccordionToggle('time')}>
                         {selectedTime || t('select-time')}
-                        <Image priority  src="/images/services/dropdown.svg" width={8} height={4} alt="dropdown" className="accordion-icon" />
+                        <Image priority quality={100}  src="/images/services/dropdown.svg" width={8} height={4} alt="dropdown" className="accordion-icon" />
                     </button>
 
                     {activeAccordion === 'time' && (
@@ -166,7 +166,7 @@ const Booking: React.FC = () => {
                                     className="booking-time-item"
                                     onClick={() => handleTimeSelect(time)}
                                 >
-                                    <Image priority  src="/images/services/circle.svg" width={20} height={20} alt="circle" /> {time}
+                                    <Image priority quality={100}  src="/images/services/circle.svg" width={20} height={20} alt="circle" /> {time}
                                 </div>
                             ))}
                         </div>

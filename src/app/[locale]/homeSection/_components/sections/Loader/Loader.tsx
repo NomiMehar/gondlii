@@ -11,7 +11,7 @@ interface LoaderProps {
 const Loader: React.FC<LoaderProps> = ({ className }) => {
   return (
     <div className={`loader ${className ? className : ''}`}> {/* Append custom class if provided */}
-      <Image priority width={50} height={50} src="/images/home/loader.svg" alt="loader" />
+      <Image priority quality={100} width={50} height={50} src="/images/home/loader.svg" alt="loader" />
     </div>
   );
 };

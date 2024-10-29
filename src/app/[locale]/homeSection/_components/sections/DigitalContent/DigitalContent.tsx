@@ -117,15 +117,15 @@ const DigitalContent: React.FC = () => {
           <Link href={`/${locale}/digitalContent`}>
         <div className="image-wrapper">
           <div className='banner'>
-          <Image priority width={100} height={100} className='main-img' src={item.imageSrc} alt={item.title} />
-          <Image priority width={32} height={32} className='heart' src="/images/home/heart.svg" alt="heart" />
+          <Image priority quality={100} width={100} height={100} className='main-img' src={item.imageSrc} alt={item.title} />
+          <Image priority quality={100} width={32} height={32} className='heart' src="/images/home/heart.svg" alt="heart" />
           </div>
           <div className="titleWrap">
           <h2 className="slide-title">{item.title}</h2>
           <span className='price'>{item.priceRange}</span>
           </div>
             <div className="info">
-             <span className='rating'><Image priority width={12} height={12} src="/images/home/star.svg" alt="star" /> {item.rating}</span>
+             <span className='rating'><Image priority quality={100} width={12} height={12} src="/images/home/star.svg" alt="star" /> {item.rating}</span>
             <span className='minute'>{item.minute}</span>
             </div>
         </div>

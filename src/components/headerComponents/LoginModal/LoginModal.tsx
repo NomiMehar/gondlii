@@ -101,7 +101,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
       <Modal show={show} onHide={handleClose} centered className="LoginModal">
         <Modal.Header closeButton>
           <Modal.Title>
-            <Image priority src="/images/logo/dark.svg" width={85} height={20} alt="logo" />
+            <Image priority quality={100} src="/images/logo/dark.svg" width={85} height={20} alt="logo" />
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -152,15 +152,15 @@ const LoginModal: React.FC<LoginModalProps> = ({
           </div>
           <div className="socialLogin">
             <button onClick={toggleLoginMethod}>
-              <Image priority src={usePhone ? "/images/notifications/Mail.svg" : "/images/notifications/phone.svg"} width={20} height={20} alt={usePhone ? "mail" : "phone"} />
+              <Image priority quality={100} src={usePhone ? "/images/notifications/Mail.svg" : "/images/notifications/phone.svg"} width={20} height={20} alt={usePhone ? "mail" : "phone"} />
               <p>{usePhone ? t("continue-with-email") : t("continue-with-phone")}</p>
             </button>
             <button>
-              <Image priority src="/images/notifications/facebook.svg" width={20} height={20} alt="facebook" />
+              <Image priority quality={100} src="/images/notifications/facebook.svg" width={20} height={20} alt="facebook" />
               <p>{t("continue-with-facebook")}</p>
             </button>
             <button>
-              <Image priority src="/images/notifications/google.svg" width={20} height={20} alt="google" />
+              <Image priority quality={100} src="/images/notifications/google.svg" width={20} height={20} alt="google" />
               <p>{t("continue-with-google")}</p>
             </button>
           </div>

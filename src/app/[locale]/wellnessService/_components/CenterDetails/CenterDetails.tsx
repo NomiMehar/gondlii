@@ -108,7 +108,7 @@ const CenterDetails: React.FC = () => {
             <h2>Harmony Haven Wellness Center</h2>
             <div className="info">
               <span className="rating">
-                <Image priority width={12} height={12} src="/images/home/star.svg" alt="star" /> 8.5
+                <Image priority quality={100} width={12} height={12} src="/images/home/star.svg" alt="star" /> 8.5
               </span>
               <span className="minute">$$$$</span>
               <span className="minute">44 Minutes</span>
@@ -116,40 +116,40 @@ const CenterDetails: React.FC = () => {
           </div>
           <div className="likeUpload">
             <button className="upload">
-              <Image priority width={40} height={40} src="/images/content/upload.svg" alt="upload" />
+              <Image priority quality={100} width={40} height={40} src="/images/content/upload.svg" alt="upload" />
             </button>
             <button className="like">
-              <Image priority width={40} height={40} src="/images/content/like.svg" alt="like" />
+              <Image priority quality={100} width={40} height={40} src="/images/content/like.svg" alt="like" />
             </button>
           </div>
         </div>
         <div className="row g-2">
           <div className="col-lg-8 mt-2">
             <div className="serviceBanner">
-              <Image priority  src="/images/services/mainBanner.svg" width={100} height={100} alt="mainBanner" />
+              <Image priority quality={100}  src="/images/services/mainBanner.svg" width={100} height={100} alt="mainBanner" />
             </div>
           </div>
           <div className="col-lg-4">
             <div className="row g-2">
               <div className="col-lg-12 mt-2">
                 <div className="blurBlock">
-                  <Image priority className="mainImg" src="/images/services/grid1.svg" width={100} height={100} alt="grid1" />
+                  <Image priority quality={100} className="mainImg" src="/images/services/grid1.svg" width={100} height={100} alt="grid1" />
                 </div>
               </div>
               <div className="col-lg-6 mt-2">
                 <div className="blurBlock">
-                  <Image priority className="mainImg" src="/images/services/grid2.svg" width={100} height={100} alt="grid2" />
+                  <Image priority quality={100} className="mainImg" src="/images/services/grid2.svg" width={100} height={100} alt="grid2" />
                   <div className="storyContent">
-                    <Image priority  src="/images/services/photos.svg" width={100} height={100} alt="photos" />
+                    <Image priority quality={100}  src="/images/services/photos.svg" width={100} height={100} alt="photos" />
                     <p>{t('see-photos')}</p>
                   </div>
                 </div>
               </div>
               <div className="col-lg-6 mt-2">
                 <div className="blurBlock">
-                  <Image priority className="mainImg" src="/images/services/grid3.svg" width={100} height={100} alt="grid3" />
+                  <Image priority quality={100} className="mainImg" src="/images/services/grid3.svg" width={100} height={100} alt="grid3" />
                   <div className="storyContent">
-                    <Image priority  src="/images/services/story.svg" width={100} height={100} alt="story" />
+                    <Image priority quality={100}  src="/images/services/story.svg" width={100} height={100} alt="story" />
                     <p>{t('featured-stories')}</p>
                   </div>
                 </div>
@@ -172,21 +172,21 @@ const CenterDetails: React.FC = () => {
               <div className="insights">
                 <div className="info">
                   <div className="logo" onClick={handleModalOpen}>
-                    <Image priority width={40} height={40} src="/images/services/Virta.svg" alt="merck" />
+                    <Image priority quality={100} width={40} height={40} src="/images/services/Virta.svg" alt="merck" />
                   </div>
                   <div>
-                    <p className="title">{t('hosted-by')} Vitra <Image priority width={14} height={14} src="/images/services/verify.svg" alt="verify" /></p>
+                    <p className="title">{t('hosted-by')} Vitra <Image priority quality={100} width={14} height={14} src="/images/services/verify.svg" alt="verify" /></p>
                     <p className="since">{t('member-since')} 16 Aug, 2023</p>
                   </div>
                 </div>
                 <div className="followInsight">
                   <div className="buttons">
                     <button onClick={handleVenueInsightsOpen}>{t('venue-insights')}</button>
-                    <button onClick={toggleDropdown}>{isDropdownOpen ? t('following') : t('follow')} <Image priority  src="/images/content/arrowDown.svg" width={8} height={4} alt='arrowDown' /></button>
+                    <button onClick={toggleDropdown}>{isDropdownOpen ? t('following') : t('follow')} <Image priority quality={100}  src="/images/content/arrowDown.svg" width={8} height={4} alt='arrowDown' /></button>
                     {isDropdownOpen && (
                       <div className="dropdown">
-                        <div className='dropdown-item'> <Image priority  src="/images/content/notifications.svg" width={32} height={32} alt='notifications' />{t('recieve-notification')}</div>
-                        <div className='dropdown-item'> <Image priority  src="/images/content/block.svg" width={32} height={32} alt='block' />{t('without-notification')}</div>
+                        <div className='dropdown-item'> <Image priority quality={100}  src="/images/content/notifications.svg" width={32} height={32} alt='notifications' />{t('recieve-notification')}</div>
+                        <div className='dropdown-item'> <Image priority quality={100}  src="/images/content/block.svg" width={32} height={32} alt='block' />{t('without-notification')}</div>
                       </div>
                     )}
                   </div>
@@ -199,7 +199,7 @@ const CenterDetails: React.FC = () => {
               {servicesData.map((service, index) => (
                 <div key={index}>
                   <h3>
-                    <Image priority  src={service.icon} width={19} height={19} alt={service.title} /> {service.title}
+                    <Image priority quality={100}  src={service.icon} width={19} height={19} alt={service.title} /> {service.title}
                   </h3>
                   <ul>
                     {service.items.map((item, idx) => (

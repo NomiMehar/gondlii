@@ -200,9 +200,9 @@ useEffect(() => {
                     ))}
                   </div>
                 )}
-                <Image priority width={100} height={100} className="main-img" src={currentImage[index]} alt={item.title} />
+                <Image priority quality={100} quality={100} width={100} height={100} className="main-img" src={currentImage[index]} alt={item.title} />
                 <div className="icon-title">
-                  <Image priority width={100} height={100} src={item.icon} alt={item.icon} />
+                  <Image priority quality={100} quality={100} width={100} height={100} src={item.icon} alt={item.icon} />
                   <h2 className="slide-title">{item.title}</h2>
                 </div>
               </div>

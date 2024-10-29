@@ -49,17 +49,17 @@ const Content: React.FC = () => {
             <h2>Pilates Workshop</h2>
             <div className="info">
               <span className="rating">
-                <Image priority width={12} height={12} src="/images/home/star.svg" alt="star" /> 9.2
+                <Image priority quality={100} width={12} height={12} src="/images/home/star.svg" alt="star" /> 9.2
               </span>
               <span className="minute">44 Minutes</span>
             </div>
           </div>
           <div className="likeUpload">
             <button className="upload">
-              <Image priority width={40} height={40} src="/images/content/upload.svg" alt="upload" />
+              <Image priority quality={100} width={40} height={40} src="/images/content/upload.svg" alt="upload" />
             </button>
             <button className="like">
-              <Image priority width={40} height={40} src="/images/content/like.svg" alt="like" />
+              <Image priority quality={100} width={40} height={40} src="/images/content/like.svg" alt="like" />
             </button>
           </div>
         </div>
@@ -78,7 +78,7 @@ const Content: React.FC = () => {
               </video>
               {!isPlaying && (
                 <div className="custom-play-button" onClick={handlePlayPauseVideo}>
-                  <Image priority src="/images/content/play.svg" width={60} height={60} alt="Play Button" className="play-icon" />
+                  <Image priority quality={100} src="/images/content/play.svg" width={60} height={60} alt="Play Button" className="play-icon" />
                 </div>
               )}
             </div>
@@ -95,7 +95,7 @@ const Content: React.FC = () => {
               <div className="insights">
                 <div className="info">
                 <div className="logo">
-                <Image priority width={40} height={40} src="/images/content/merck.svg" alt="merck" />
+                <Image priority quality={100} width={40} height={40} src="/images/content/merck.svg" alt="merck" />
                 </div>
                 <div>
                     <p className='title'>{t('hosted-by')} Merck</p>
@@ -105,11 +105,11 @@ const Content: React.FC = () => {
                 <div className="followInsight">
                 <div className="buttons">
                     <button>{t('venue-insights')}</button>
-                    <button onClick={toggleDropdown}>{isDropdownOpen ? t('following') : t('follow')} <Image priority  src="/images/content/arrowDown.svg" width={8} height={4} alt='arrowDown' /></button>
+                    <button onClick={toggleDropdown}>{isDropdownOpen ? t('following') : t('follow')} <Image priority quality={100}  src="/images/content/arrowDown.svg" width={8} height={4} alt='arrowDown' /></button>
                     {isDropdownOpen && (
                       <div className="dropdown">
-                        <div className='dropdown-item'> <Image priority  src="/images/content/notifications.svg" width={32} height={32} alt='notifications' />{t('recieve-notification')}</div>
-                        <div className='dropdown-item'> <Image priority  src="/images/content/block.svg" width={32} height={32} alt='block' />{t('without-notification')}</div>
+                        <div className='dropdown-item'> <Image priority quality={100}  src="/images/content/notifications.svg" width={32} height={32} alt='notifications' />{t('recieve-notification')}</div>
+                        <div className='dropdown-item'> <Image priority quality={100}  src="/images/content/block.svg" width={32} height={32} alt='block' />{t('without-notification')}</div>
                       </div>
                     )}
                 </div>
@@ -118,7 +118,7 @@ const Content: React.FC = () => {
             </div>
             <div className="service">
               <h3>{t('program-outline')}</h3>
-              <h3><Image priority  src="/images/content/time.svg" width={19} height={19} alt="time" /> 48 Minutes</h3>
+              <h3><Image priority quality={100}  src="/images/content/time.svg" width={19} height={19} alt="time" /> 48 Minutes</h3>
               <ul>
                 {services.map((service, index) => (
                   <li key={index}>

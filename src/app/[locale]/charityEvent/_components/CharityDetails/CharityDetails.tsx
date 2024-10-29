@@ -33,17 +33,17 @@ const CharityDetails: React.FC = () => {
           </div>
           <div className="likeUpload">
             <button className="upload">
-              <Image priority width={40} height={40} src="/images/content/upload.svg" alt="upload" />
+              <Image priority quality={100} width={40} height={40} src="/images/content/upload.svg" alt="upload" />
             </button>
             <button className="like">
-              <Image priority width={40} height={40} src="/images/content/like.svg" alt="like" />
+              <Image priority quality={100} width={40} height={40} src="/images/content/like.svg" alt="like" />
             </button>
           </div>
         </div>
         <div className="row">
           <div className="col-lg-8">
            <div className="charityBanner">
-            <Image priority  src="/images/charity/charityBanner.svg" width={100} height={100} alt="charityBanner" />
+            <Image priority quality={100}  src="/images/charity/charityBanner.svg" width={100} height={100} alt="charityBanner" />
            </div>
             <div className="aboutClass">
               <h3>{t('charity-detail')}</h3>
@@ -58,7 +58,7 @@ const CharityDetails: React.FC = () => {
               <div className="insights">
                 <div className="info">
                 <div className="logo">
-                <Image priority width={40} height={40} src="/images/charity/qual.svg" alt="merck" />
+                <Image priority quality={100} width={40} height={40} src="/images/charity/qual.svg" alt="merck" />
                 </div>
                 <div>
                     <p className='title'>{t('hosted-by')} Give & Gain Initiative</p>
@@ -68,11 +68,11 @@ const CharityDetails: React.FC = () => {
                 <div className="followInsight">
                 <div className="buttons">
                     <button>{t('fundraiser-insights')}</button>
-                    <button onClick={toggleDropdown}>{isDropdownOpen ? t('following') : t('follow')} <Image priority  src="/images/content/arrowDown.svg" width={8} height={4} alt='arrowDown' /></button>
+                    <button onClick={toggleDropdown}>{isDropdownOpen ? t('following') : t('follow')} <Image priority quality={100}  src="/images/content/arrowDown.svg" width={8} height={4} alt='arrowDown' /></button>
                     {isDropdownOpen && (
                       <div className="dropdown">
-                        <div className='dropdown-item'> <Image priority  src="/images/content/notifications.svg" width={32} height={32} alt='notifications' />{t('recieve-notification')}</div>
-                        <div className='dropdown-item'> <Image priority  src="/images/content/block.svg" width={32} height={32} alt='block' />{t('without-notification')}</div>
+                        <div className='dropdown-item'> <Image priority quality={100}  src="/images/content/notifications.svg" width={32} height={32} alt='notifications' />{t('recieve-notification')}</div>
+                        <div className='dropdown-item'> <Image priority quality={100}  src="/images/content/block.svg" width={32} height={32} alt='block' />{t('without-notification')}</div>
                       </div>
                     )}
                 </div>

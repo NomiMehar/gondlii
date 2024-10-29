@@ -155,9 +155,9 @@ const SocialIcons: React.FC = () => {
               <div className="notificationWrap active">
                 <div className="logoWrap">
                   <div className="logo">
-                    <Image priority width={40} height={40} src="/images/home/spa.svg" alt="spa" />
+                    <Image priority quality={100} width={40} height={40} src="/images/home/spa.svg" alt="spa" />
                   </div>
-                  <Image priority width={20} height={20} className='mark' src="/images/home/check.svg" alt="check" />
+                  <Image priority quality={100} width={20} height={20} className='mark' src="/images/home/check.svg" alt="check" />
                 </div>
                 <div className="content">
                   <p>Congratulations! Your booking got accepted by <b>Harmony Haven Spa center.</b></p>
@@ -171,9 +171,9 @@ const SocialIcons: React.FC = () => {
               <div className="notificationWrap active">
                 <div className="logoWrap">
                   <div className="logo noBorder">
-                    <Image priority width={40} height={40} src="/images/home/airbnb.svg" alt="airbnb" />
+                    <Image priority quality={100} width={40} height={40} src="/images/home/airbnb.svg" alt="airbnb" />
                   </div>
-                  <Image priority width={20} height={20} className='mark' src="/images/home/comment.svg" alt="comment" />
+                  <Image priority quality={100} width={20} height={20} className='mark' src="/images/home/comment.svg" alt="comment" />
                 </div>
                 <div className="content">
                   <p><b>Pure Pilates Oasis</b> replied back on your comment: ”When is the next free time for booking?”</p>
@@ -186,7 +186,7 @@ const SocialIcons: React.FC = () => {
             <Link onClick={handleLinkClick} href={`/${locale}/notifications`}>
               <div className="notificationWrap">
                 <div className="logo">
-                  <Image priority width={40} height={40} src="/images/home/digital.svg" alt="digital" />
+                  <Image priority quality={100} width={40} height={40} src="/images/home/digital.svg" alt="digital" />
                 </div>
                 <div className="content">
                   <p>Check out the new Digital Content on Gondli available for pro members only.</p>
@@ -207,52 +207,52 @@ const SocialIcons: React.FC = () => {
       </div>
       <div className="dropdown">
         <button className="user" onClick={() => toggleDropdown(3)}>
-         <Image priority width={50} height={50} className='logo' src="/images/home/user.svg" alt="user" />
+         <Image priority quality={100} width={50} height={50} className='logo' src="/images/home/user.svg" alt="user" />
         <p>Madeline Hintz</p>
-         <Image priority width={10} height={7} className='arrow' src="/images/home/arrow.svg" alt="arrow" />
+         <Image priority quality={100} width={10} height={7} className='arrow' src="/images/home/arrow.svg" alt="arrow" />
         </button>
 
         {openDropdown === 3 && (
           <ul className="dropdown-menu userInfo">
           <li className="dropdown-item">
             <Link onClick={handleLinkClick} href="/">
-            <Image priority width={32} height={32} src="/images/home/Notifications.svg" alt="Notifications" />
+            <Image priority quality={100} width={32} height={32} src="/images/home/Notifications.svg" alt="Notifications" />
             <p>{t('profile')}</p>
             </Link>
           </li>
           <li className="dropdown-item">
             <Link onClick={handleLinkClick} href="/">
-            <Image priority width={32} height={32} src="/images/home/Notifications-1.svg" alt="Notifications" />
+            <Image priority quality={100} width={32} height={32} src="/images/home/Notifications-1.svg" alt="Notifications" />
             <p>{t("settings")}</p>
             </Link>
           </li>
           <li className="dropdown-item">
             <Link onClick={handleLinkClick} href="/">
-            <Image priority width={32} height={32} src="/images/home/Notifications-2.svg" alt="Notifications" />
+            <Image priority quality={100} width={32} height={32} src="/images/home/Notifications-2.svg" alt="Notifications" />
             <p>{t("membership")}</p>
             </Link>
           </li>
           <li className="dropdown-item" onClick={openModal}>
             <div className='language' onClick={handleLinkClick}>
-            <Image priority width={32} height={32} src="/images/home/Notifications-3.svg" alt="Notifications" />
+            <Image priority quality={100} width={32} height={32} src="/images/home/Notifications-3.svg" alt="Notifications" />
             <p>{t("language")}</p>
             </div>
           </li>
           <li className="dropdown-item" onClick={openSignupModal}>
             <div className='language' onClick={handleLinkClick}>
-            <Image priority width={32} height={32} src="/images/home/Notifications-3.svg" alt="Notifications" />
+            <Image priority quality={100} width={32} height={32} src="/images/home/Notifications-3.svg" alt="Notifications" />
             <p>{t("signup")}</p>
             </div>
           </li>
           <li className="dropdown-item" onClick={openLoginModal}>
             <div className='language' onClick={handleLinkClick}>
-            <Image priority width={32} height={32} src="/images/home/Notifications-3.svg" alt="Notifications" />
+            <Image priority quality={100} width={32} height={32} src="/images/home/Notifications-3.svg" alt="Notifications" />
             <p>{t("login")}</p>
             </div>
           </li>
           <li className="dropdown-item borderTop">
             <Link onClick={handleLinkClick} href="/">
-            <Image priority width={32} height={32} src="/images/home/Notifications-4.svg" alt="Notifications" />
+            <Image priority quality={100} width={32} height={32} src="/images/home/Notifications-4.svg" alt="Notifications" />
             <p>{t("log-out")}</p>
             </Link>
           </li>

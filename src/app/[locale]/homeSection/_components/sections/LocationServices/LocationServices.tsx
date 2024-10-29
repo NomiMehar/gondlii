@@ -16,7 +16,7 @@ const LocationServices: React.FC = () => {
       }}>
         <div className="container">
             <div className="content">
-            <Image priority width={60} height={60} src="/images/home/LocationMarker.svg" alt="LocationMarker" />
+            <Image priority quality={100} width={60} height={60} src="/images/home/LocationMarker.svg" alt="LocationMarker" />
                 <h2>{t('turn-location')}</h2>
                 <p>{t('activate-location')}</p>
                 <div className="buttons">

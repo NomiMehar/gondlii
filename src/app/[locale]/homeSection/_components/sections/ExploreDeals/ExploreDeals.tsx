@@ -122,8 +122,8 @@ const ExploreDeals: React.FC = () => {
         <SwiperSlide key={index} className="swiper-slide">
         <div className="image-wrapper">
           <div className='banner'>
-          <Image priority width={100} height={100} className='main-img' src={item.imageSrc} alt={item.title} />
-          <Image priority width={32} height={32} className='heart' src="/images/home/heart.svg" alt="heart" />
+          <Image priority quality={100} width={100} height={100} className='main-img' src={item.imageSrc} alt={item.title} />
+          <Image priority quality={100} width={32} height={32} className='heart' src="/images/home/heart.svg" alt="heart" />
           </div>
           <h2 className="slide-title">{item.title}</h2>
           <div className="additional-info">
@@ -133,7 +133,7 @@ const ExploreDeals: React.FC = () => {
                     ))}
             </div>
             <div className="info">
-             <span className='rating'><Image priority width={12} height={12} src="/images/home/star.svg" alt="star" /> {item.rating}</span>
+             <span className='rating'><Image priority quality={100} width={12} height={12} src="/images/home/star.svg" alt="star" /> {item.rating}</span>
              <span className='price'>{item.priceRange}</span>
             <span className='location'>{item.location}</span>
             </div>

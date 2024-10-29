@@ -10,7 +10,7 @@ const HeaderInput: React.FC = () => {
   return (
     <React.Fragment>
       <div className="headerInput">
-        <Image priority width={24} height={24} src="/images/home/SearchOutline.svg" alt="SearchOutline" />
+        <Image priority quality={100} width={24} height={24} src="/images/home/SearchOutline.svg" alt="SearchOutline" />
         <input
           spellCheck='false'
           type="text"
