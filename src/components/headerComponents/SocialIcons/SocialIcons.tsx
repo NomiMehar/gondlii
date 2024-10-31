@@ -238,7 +238,7 @@ const SocialIcons: React.FC = () => {
             <p>{t("language")}</p>
             </div>
           </li>
-          <li className="dropdown-item" onClick={openSignupModal}>
+          {/* <li className="dropdown-item" onClick={openSignupModal}>
             <div className='language' onClick={handleLinkClick}>
             <Image priority quality={100} width={32} height={32} src="/images/home/Notifications-3.svg" alt="Notifications" />
             <p>{t("signup")}</p>
@@ -249,7 +249,7 @@ const SocialIcons: React.FC = () => {
             <Image priority quality={100} width={32} height={32} src="/images/home/Notifications-3.svg" alt="Notifications" />
             <p>{t("login")}</p>
             </div>
-          </li>
+          </li> */}
           <li className="dropdown-item borderTop">
             <Link onClick={handleLinkClick} href="/">
             <Image priority quality={100} width={32} height={32} src="/images/home/Notifications-4.svg" alt="Notifications" />

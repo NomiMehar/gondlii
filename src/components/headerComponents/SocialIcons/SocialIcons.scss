@@ -109,21 +109,32 @@
         top: 100%;
         right: 0;
         transform: translateY(10px);
-        background-color: #446b74;
-        border: 2px solid rgba(255, 255, 255, 0.25);
-        border-radius: 10px;
+        border-radius: 12px;
         list-style-type: none;
-        padding: 5px 0;
+        padding: 0;
         margin: 0;
+        border: none;
         width: 100%;
         z-index: 1000;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        @media screen and (max-width: 600px) {
+        backdrop-filter: blur(115.37708282470703px);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+           @media screen and (max-width: 600px) {
           right: -55px;
         }
+        &::before{
+          background-color: #3b626b;
+          position: absolute;
+          top: 2px;
+          bottom: 2px;
+          left: 2px;
+          right: 2px;
+          content: "";
+          z-index: -1;
+          border-radius: 12px;
+      }
         .dropdown-item {
           display: block;
-          padding: 10px 15px;
+          padding: 16px;
           word-break: break-all;
           text-wrap: wrap;
           cursor: pointer;
@@ -147,7 +158,7 @@
           }
           .dropdown-item{
             display: inline-block;
-            padding: 10px 15px;
+            padding: 16px 16px 4px;
             cursor: pointer;
             &:active{
               background: none;
@@ -238,7 +249,7 @@
                 text-align: center;
                 border-top: 1px solid rgba(255, 255, 255, 0.25);
                 p{
-                  padding: 20px 0 10px;
+                  padding: 20px;
                 color: rgba(255, 255, 255, 1);
                 font-size: 16px;
                 text-decoration: none;
@@ -248,16 +259,18 @@
           }
         }
         &.userInfo{
-          padding: 5px 10px;
+          padding: 6px 10px;
           right: 0;
           min-width: 165px;
           @media screen and (max-width: 1023px) {
            right: 0px;
           }
           .dropdown-item{
-            padding: 10px 5px;
+            padding: 10px 6px;
             &.borderTop{
               border-top: 1px solid rgba(255, 255, 255, 0.25);
+              padding-top: 12px;
+              margin-top: 6px;
             }
           }
           .language,a{
