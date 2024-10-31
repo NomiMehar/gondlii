@@ -49,28 +49,50 @@ const reviews = [
 ];
 const Carousel = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [progress, setProgress] = useState(0);
     const [isPlaying, setIsPlaying] = useState(true);
     const t = useTranslations();
 
     useEffect(() => {
+        let interval: string | number | NodeJS.Timeout | undefined;
+        let progressInterval: string | number | NodeJS.Timeout | undefined;
+
         if (isPlaying) {
-            const interval = setInterval(() => {
+            // Slide change interval
+            interval = setInterval(() => {
                 handleNext();
-            }, 3000);
-            return () => clearInterval(interval);
+            }, 15000); // Adjust time as needed (3 seconds per slide)
+
+            // Progress bar interval
+            progressInterval = setInterval(() => {
+                setProgress((prev) => (prev + 2) % 110); // Update progress
+            }, 300); // Adjust to sync with slide time
         }
+
+        return () => {
+            clearInterval(interval);
+            clearInterval(progressInterval);
+        };
     }, [isPlaying, currentIndex]);
 
     const handleNext = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        setProgress(0); // Reset progress for new slide
     };
 
     const handleBack = () => {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+        setProgress(0); // Reset progress for previous slide
     };
 
     const handlePause = () => {
         setIsPlaying(!isPlaying);
+    };
+
+    const handleDotClick = (index: React.SetStateAction<number>) => {
+        setCurrentIndex(index);
+        setProgress(0);
+        setIsPlaying(true);
     };
 
     return (
@@ -80,27 +102,34 @@ const Carousel = () => {
                 <Image priority quality={100} width={100} height={100} src={images[currentIndex]} alt={`Slide ${currentIndex}`} objectFit="cover" />
             </div>
 
-            {/* Navigation Buttons */}
+            {/* Navigation Controls */}
             <div className="carousel-controls">
                 <div className="carousel-position">
-                    <div className="play">
-                        <button className="pause-btn" onClick={handlePause}><Image priority quality={100}  src="/images/services/pause.svg" width={16} height={16} alt='pause' /> {isPlaying ? t('pause') : t('play')}</button>
-                    </div>
+                    <button className="pause-btn" onClick={handlePause}>
+                        <Image priority quality={100} src="/images/services/pause.svg" width={16} height={16} alt='pause' />
+                        {isPlaying ? t('pause') : t('play')}
+                    </button>
                     <div className="nextBack">
-                        <button className="back-btn" onClick={handleBack}><Image priority quality={100}  src="/images/services/previous.svg" width={24} height={24} alt='pause' /></button>
-                        <button className="next-btn" onClick={handleNext}><Image priority quality={100}  src="/images/services/next.svg" width={24} height={24} alt='pause' /></button>
+                    <button className="back-btn" onClick={handleBack}>
+                        <Image priority quality={100} src="/images/services/previous.svg" width={24} height={24} alt='back' />
+                    </button>
+                    <button className="next-btn" onClick={handleNext}>
+                        <Image priority quality={100} src="/images/services/next.svg" width={24} height={24} alt='next' />
+                    </button>
                     </div>
                 </div>
             </div>
 
-            {/* Navigation Dots */}
+            {/* Progress Bars */}
             <div className="carousel-dots">
                 {images.map((_, index) => (
-                    <span
-                        key={index}
-                        className={`dot ${index === currentIndex ? 'active' : ''}`}
-                        onClick={() => setCurrentIndex(index)}
-                    ></span>
+                    <div key={index} className="progress-bar-wrapper">
+                        <div
+                            className={`dot ${index === currentIndex ? 'active pagination-dot-fill' : ''}`}
+                            onClick={() => handleDotClick(index)}
+                            style={{ width: `${index === currentIndex ? progress : 110}%` }}
+                        ></div>
+                    </div>
                 ))}
             </div>
         </div>

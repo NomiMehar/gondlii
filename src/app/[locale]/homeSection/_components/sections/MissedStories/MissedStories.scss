@@ -59,17 +59,38 @@
           padding: 0 5px;
           gap: 5px;
 
-          .pagination-dot {
-            width: 33.33% !important;
+          .progress-bar-wrapper {
+            position: relative;
+            width: 100%;
             height: 3px;
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 10px;
-            background: rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+        }
+          .pagination-dot {
+            background: rgba(255, 255, 255, 0.2); /* default color */
+            height: 3px;
+            border-radius: 2px;
             transition: width 0.3s ease;
-
-            &.active {
-              background: linear-gradient(266.66deg, #5CB170 -7.81%, #D6DE6D 118.14%);
+          }
+          
+          .pagination-dot.active {
+            background: linear-gradient(266.66deg, #5CB170 -7.81%, #D6DE6D 118.14%);
+          }
+          
+          .pagination-dot-fill {
+            animation: fillProgress 5s linear forwards; /* adjust 5s to your duration */
+          }
+          
+          @keyframes fillProgress {
+            from {
+              width: 0%;
+            }
+            to {
+              width: 250%;
             }
           }
+          
         }
 
         .icon-title {

@@ -44,28 +44,27 @@ const MissedStories: React.FC = () => {
   const [slideIntervalId, setSlideIntervalId] = useState<(ReturnType<typeof setInterval> | null)[]>(slideData.map(() => null));
   const [progressIntervalId, setProgressIntervalId] = useState<(ReturnType<typeof setInterval> | null)[]>(slideData.map(() => null));
   const [showPagination, setShowPagination] = useState<boolean[]>(slideData.map(() => false));
-  const [isLoading, setIsLoading] = useState<boolean>(true); // Add loading state
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [upadateShowModal, setUpadateShowModal] = useState(false);
   const swiperRef = useRef<any>(null);
 
-// Function to handle image preloading
-useEffect(() => {
-  const preloadImages = () => {
-    const imagePromises = slideData.map(item => {
-      const img = new window.Image();
-      return new Promise<void>((resolve) => {
-        img.src = item.imageSrc;
-        img.onload = () => resolve();
+  useEffect(() => {
+    const preloadImages = () => {
+      const imagePromises = slideData.map(item => {
+        const img = new window.Image();
+        return new Promise<void>((resolve) => {
+          img.src = item.imageSrc;
+          img.onload = () => resolve();
+        });
       });
-    });
 
-    Promise.all(imagePromises).then(() => {
-      setIsLoading(false); // Hide loader when all images are loaded
-    });
-  };
+      Promise.all(imagePromises).then(() => {
+        setIsLoading(false);
+      });
+    };
 
-  preloadImages();
-}, []);
+    preloadImages();
+  }, []);
 
   const startSlideShow = (index: number) => {
     const images = slideData[index].storyImages;
@@ -106,21 +105,35 @@ useEffect(() => {
       newPagination[index] = true;
       return newPagination;
     });
-
+  
+    // Reset image index and progress for the hovered slide
+    setImgIndices((prevIndices) => {
+      const updatedIndices = [...prevIndices];
+      updatedIndices[index] = 0; // Start from the first image
+      return updatedIndices;
+    });
+  
+    setProgress((prevProgress) => {
+      const updatedProgress = [...prevProgress];
+      updatedProgress[index] = 0; // Reset progress
+      return updatedProgress;
+    });
+  
     const { intervalId, progressInterval } = startSlideShow(index);
-
+  
     setSlideIntervalId((prev) => {
       const newIntervals = [...prev];
       newIntervals[index] = intervalId;
       return newIntervals;
     });
-
+  
     setProgressIntervalId((prev) => {
       const newIntervals = [...prev];
       newIntervals[index] = progressInterval;
       return newIntervals;
     });
   };
+  
 
   const handleMouseLeave = (index: number) => {
     setHoveredIndex(null);
@@ -129,90 +142,105 @@ useEffect(() => {
       newPagination[index] = false;
       return newPagination;
     });
-
+  
+    // Reset the current image to the original one when the mouse leaves
     setCurrentImage((prevImages) => {
       const updatedImages = [...prevImages];
       updatedImages[index] = slideData[index].imageSrc;
       return updatedImages;
     });
-
+  
+    // Reset the progress for the current slide
     setProgress((prevProgress) => {
       const updatedProgress = [...prevProgress];
       updatedProgress[index] = 0;
       return updatedProgress;
     });
-
+  
+    // Clear the intervals for the current slide
     if (slideIntervalId[index]) clearInterval(slideIntervalId[index]!);
     if (progressIntervalId[index]) clearInterval(progressIntervalId[index]!);
+  
+    // Stop the swiper's automatic sliding
+    if (swiperRef.current) {
+      swiperRef.current.autoplay.stop(); // Stop the autoplay if enabled
+    }
   };
-  const handleModalOpen = () => {
-    setUpadateShowModal(true); // Show the modal when the title is clicked
+  
+
+  const handleModalOpen = (story: SlideData) => {
+    setUpadateShowModal(true);
   };
+
   const handleModalClose = () => {
-    setUpadateShowModal(false); // Hide the modal when the close button is clicked
+    setUpadateShowModal(false);
   };
 
   return (
     <React.Fragment>
-    <div className="missedStories">
-    <div className="container">
-      <div className="title">
-        <h2>{t('missed-stories')}</h2>
-      </div>
+      <div className="missedStories">
+        <div className="container">
+          <div className="title">
+            <h2>{t('missed-stories')}</h2>
+          </div>
 
-      {isLoading ? (
-        <Loader className="missedLoader" />
-      ) : (
-         <Swiper
-          loop={true}
-          slidesPerView={6}
-          spaceBetween={15}
-          navigation={true}
-          speed={500}
-          modules={[Navigation]}
-          className="swiper_container"
-          onSwiper={(swiperInstance) => {
-            swiperRef.current = swiperInstance;
-          }}
-          breakpoints={{
-            1400: { slidesPerView: 6, spaceBetween: 15 },
-            1000: { slidesPerView: 6, spaceBetween: 15 },
-            600: { slidesPerView: 4, spaceBetween: 15 },
-            0: { slidesPerView: 1, spaceBetween: 10 },
-          }}
-        >
-          {slideData.map((item, index) => (
-            <SwiperSlide key={index} className="swiper-slide">
-              <div
-                className="image-wrapper"
-                onClick={handleModalOpen}
-                onMouseEnter={() => handleMouseEnter(index)}
-                onMouseLeave={() => handleMouseLeave(index)}
-              >
-                {showPagination[index] && (
-                  <div className="pagination-wrapper">
-                    {slideData[index].storyImages.map((_, i) => (
-                      <div
-                        key={i}
-                        className={`pagination-dot ${hoveredIndex === index && i === imgIndices[index] ? 'active' : ''}`}
-                        style={{ width: `${i === imgIndices[index] ? progress[index] : 100}%` }}
-                      ></div>
-                    ))}
+          {isLoading ? (
+            <Loader className="missedLoader" />
+          ) : (
+            <Swiper
+              loop={true}
+              slidesPerView={6}
+              spaceBetween={15}
+              navigation={true}
+              speed={500}
+              modules={[Navigation]}
+              className="swiper_container"
+              onSwiper={(swiperInstance) => {
+                swiperRef.current = swiperInstance;
+              }}
+              breakpoints={{
+                1400: { slidesPerView: 6, spaceBetween: 15 },
+                1000: { slidesPerView: 6, spaceBetween: 15 },
+                600: { slidesPerView: 4, spaceBetween: 15 },
+                0: { slidesPerView: 1, spaceBetween: 10 },
+              }}
+            >
+              {slideData.map((item, index) => (
+                <SwiperSlide key={index} className="swiper-slide">
+                  <div
+                    className="image-wrapper"
+                    onClick={() => handleModalOpen(item)}
+                    onMouseEnter={() => handleMouseEnter(index)}
+                    onMouseLeave={() => handleMouseLeave(index)}
+                  >
+                    {showPagination[index] && (
+                      <div className="pagination-wrapper">
+
+                        {slideData[index].storyImages.map((_, i) => (
+                          <div key={i} className="progress-bar-wrapper">
+                            <div
+                              className={`pagination-dot ${
+                                hoveredIndex === index && i === imgIndices[index] ? 'active pagination-dot-fill' : ''
+                              }`}
+                              style={{ width: i === imgIndices[index] ? `${progress[index]}` : '100%' }}
+                            ></div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    <Image priority quality={100} width={100} height={100} className="main-img" src={currentImage[index]} alt={item.title} />
+                    <div className="icon-title">
+                      <Image priority quality={100} width={100} height={100} src={item.icon} alt={item.icon} />
+                      <h2 className="slide-title">{item.title}</h2>
+                    </div>
                   </div>
-                )}
-                <Image priority quality={100} width={100} height={100} className="main-img" src={currentImage[index]} alt={item.title} />
-                <div className="icon-title">
-                  <Image priority quality={100} width={100} height={100} src={item.icon} alt={item.icon} />
-                  <h2 className="slide-title">{item.title}</h2>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      )}
-    </div>
-  </div>
-  <RecentUpdateModal showModal={upadateShowModal} onClose={handleModalClose} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          )}
+        </div>
+      </div>
+        <RecentUpdateModal showModal={upadateShowModal} onClose={handleModalClose} />
     </React.Fragment>
   );
 };

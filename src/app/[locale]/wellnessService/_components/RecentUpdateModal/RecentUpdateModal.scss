@@ -129,14 +129,20 @@
     padding: 0 10px;
 }
 
-.dot {
+.progress-bar-wrapper {
+    position: relative;
     width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.dot {
     height: 3px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
     cursor: pointer;
 }
-
 .dot.active {
     background: linear-gradient(266.66deg, #5CB170 -7.81%, #D6DE6D 118.14%);
 }
