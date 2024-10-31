@@ -117,7 +117,7 @@
         width: 100%;
         z-index: 1000;
         backdrop-filter: blur(115.37708282470703px);
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgb(59 98 107));
            @media screen and (max-width: 600px) {
           right: -55px;
         }
@@ -224,8 +224,7 @@
                   }
                 }
                 .content{
-                  width: 350px;
-                  white-space: break-spaces;
+                  width: 310px;
                   display: flex;
                   flex-direction: column;
                   gap: 5px;
@@ -236,6 +235,7 @@
                     color: rgba(255, 255, 255, 1);
                     font-size: 14px;
                     line-height: 20px;
+                    word-break: break-word;
                     b{
                       font-weight: 700;
                     }
