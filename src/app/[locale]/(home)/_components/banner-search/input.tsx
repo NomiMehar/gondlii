@@ -50,7 +50,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         )}
       >
         {Icon && (
-          <Icon className='absolute left-5 top-1/2 z-10 size-3.625 -translate-y-1/2 sm:size-6' />
+          <Icon className='absolute left-5 top-1/2 z-10 size-3.625 -translate-y-1/2 sm:size-6 text-white' />
         )}
         <input
           type={type}

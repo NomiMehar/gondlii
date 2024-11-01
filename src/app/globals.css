@@ -46,6 +46,21 @@ body{
   clear: both;
   content: "";
 }
+.headerSearch {
+  min-width: 550px;
+}
+.headerSearch input{
+  height: 54px !important;
+}
+.headerSearch button{
+  height: 42px !important;
+}
+
+@media screen and (max-width: 1200px) {
+.headerSearch .headerInput{
+  min-width: 400px;
+}  
+}
 @media screen and (max-width: 767px) {
   .logoWrap{
     width: auto;
@@ -62,19 +77,15 @@ body{
     transform: translate(-50%, 0);
     padding: 15px;
   }
-  .mobileHeaderSearch .headerSearch .headerInput input{
-    height: 30px;
+  .headerSearch input{
+    height: 49px !important;
   }
-  
-  .mobileHeaderSearch .headerSearch .headerInput button{
-    padding: 8px 20px;
+  .headerSearch button{
+    height: 40px !important;
   }
-}
-@media screen and (max-width: 1200px) {
-.headerSearch .headerInput{
-  min-width: 400px;
-}  
-
+  .headerSearch {
+    min-width: 100%;
+  }
 }
 @media screen and (max-width: 700px) {
   .headerSearch .headerInput{

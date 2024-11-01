@@ -14,6 +14,8 @@ import {
 import HeaderInput from '../headerComponents/HeaderInput/HeaderInput';
 import SocialIcons from '../headerComponents/SocialIcons/SocialIcons';
 import { useLocale } from 'next-intl';
+import BannerSearch from '@/app/[locale]/(home)/_components/banner-search/BannerSearch';
+
 
 export default function Header() {
   const [showSearch, setShowSearch] = useState(false);
@@ -54,7 +56,7 @@ export default function Header() {
           {!isHomePage && (
             <nav className='hidden lg:block'>
               <div className="headerSearch">
-                <HeaderInput />
+              <BannerSearch />
               </div>
             </nav>
           )}
@@ -62,7 +64,7 @@ export default function Header() {
           {isHomePage && showSearch && (
             <nav className='mobileHeaderSearch'>
               <div className="headerSearch">
-                <HeaderInput />
+                <BannerSearch />
               </div>
             </nav>
           )}
@@ -83,7 +85,7 @@ export default function Header() {
                 </SheetTrigger>
                 <SheetContent side={'top'}>
                   <div className="headerSearch">
-                    <HeaderInput />
+                  <BannerSearch />
                   </div>
                   <SheetTitle>Header Navigation</SheetTitle>
                   <SheetDescription>
