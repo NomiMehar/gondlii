@@ -124,10 +124,10 @@
         &::before{
           background-color: #3b626b;
           position: absolute;
-          top: 1.5px;
-          bottom: 1.5px;
-          left: 1.5px;
-          right: 1.2px;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
           content: "";
           z-index: -1;
           border-radius: 12px;
