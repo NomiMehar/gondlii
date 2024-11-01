@@ -53,11 +53,28 @@ body{
   .logoWrap img{
     height: 30px;
   }
+  .mobileHeaderSearch{
+    background: #0c343d;
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, 0);
+    padding: 15px;
+  }
+  .mobileHeaderSearch .headerSearch .headerInput input{
+    height: 30px;
+  }
+  
+  .mobileHeaderSearch .headerSearch .headerInput button{
+    padding: 8px 20px;
+  }
 }
 @media screen and (max-width: 1200px) {
 .headerSearch .headerInput{
   min-width: 400px;
 }  
+
 }
 @media screen and (max-width: 700px) {
   .headerSearch .headerInput{
@@ -67,6 +84,7 @@ body{
 .headerSearch .headerInput input{
   height: 39px;
 }
+
 .headerSearch .headerInput button{
   padding: 12px 20px;
 }

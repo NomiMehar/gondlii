@@ -161,14 +161,15 @@ const MissedStories: React.FC = () => {
     if (slideIntervalId[index]) clearInterval(slideIntervalId[index]!);
     if (progressIntervalId[index]) clearInterval(progressIntervalId[index]!);
   
-    // Stop the swiper's automatic sliding
-    if (swiperRef.current) {
-      swiperRef.current.autoplay.stop(); // Stop the autoplay if enabled
+    // Check if swiperRef.current exists before calling stop()
+    if (swiperRef.current && swiperRef.current.autoplay) {
+      swiperRef.current.autoplay.stop();
     }
   };
   
+  
 
-  const handleModalOpen = (story: SlideData) => {
+  const handleModalOpen = (item: SlideData) => {
     setUpadateShowModal(true);
   };
 

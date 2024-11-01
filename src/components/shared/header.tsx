@@ -1,7 +1,7 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
-// import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { Menu } from '@/icons';
 import {
@@ -16,10 +16,25 @@ import SocialIcons from '../headerComponents/SocialIcons/SocialIcons';
 import { useLocale } from 'next-intl';
 
 export default function Header() {
+  const [showSearch, setShowSearch] = useState(false);
   const pathname = usePathname();
   const locale = useLocale();
-  // Check if the current route is the home page
   const isHomePage = pathname === `/${locale}/homeSection`;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollThreshold = window.innerWidth < 767 ? 180 : 210;
+      
+      if (window.scrollY >= scrollThreshold) {
+        setShowSearch(true);
+      } else {
+        setShowSearch(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <header className='fixed top-0 z-30 w-full bg-surface-brand'>
@@ -39,7 +54,15 @@ export default function Header() {
           {!isHomePage && (
             <nav className='hidden lg:block'>
               <div className="headerSearch">
-              <HeaderInput />
+                <HeaderInput />
+              </div>
+            </nav>
+          )}
+          
+          {isHomePage && showSearch && (
+            <nav className='mobileHeaderSearch'>
+              <div className="headerSearch">
+                <HeaderInput />
               </div>
             </nav>
           )}
@@ -47,20 +70,27 @@ export default function Header() {
           <div className='flex w-full justify-end gap-2'>
             <SocialIcons />
             {!isHomePage && (
-            <Sheet>
-              <SheetTrigger>
-              <Image className='lg:hidden' priority width={24} height={24} src="/images/home/SearchOutline.svg" alt="SearchOutline" />
-              </SheetTrigger>
-              <SheetContent side={'top'}>
-              <div className="headerSearch">
-              <HeaderInput />
-              </div>
-                <SheetTitle>Header Navigation</SheetTitle>
-                <SheetDescription>
-                  The main navigation of the page.
-                </SheetDescription>
-              </SheetContent>
-            </Sheet>
+              <Sheet>
+                <SheetTrigger>
+                  <Image
+                    className='lg:hidden'
+                    priority
+                    width={24}
+                    height={24}
+                    src="/images/home/SearchOutline.svg"
+                    alt="SearchOutline"
+                  />
+                </SheetTrigger>
+                <SheetContent side={'top'}>
+                  <div className="headerSearch">
+                    <HeaderInput />
+                  </div>
+                  <SheetTitle>Header Navigation</SheetTitle>
+                  <SheetDescription>
+                    The main navigation of the page.
+                  </SheetDescription>
+                </SheetContent>
+              </Sheet>
             )}
           </div>
         </div>
